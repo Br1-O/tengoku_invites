@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  position: relative;
+  color: var(--foreground);
+  background-image: url("../public/images/poster_dandadan.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Covers entire body */
+  background: rgba(0, 0, 0, 0.7); /* Adjust opacity here */
+  z-index: -1; /* Places it behind all content */
+}
+
+/* ■■■■­■■­■■­■■­■■ Scrollbar ■■■■­■■­■■­■■­■■ */
+
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #2e2e2e; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: #d946ef;   
+  background: linear-gradient(180deg, #d946ef, #ec4899);
+
+  transition: all 4s ease;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d946ef;   
+  background: linear-gradient(180deg, #d216ef, #e91a82);
+}
