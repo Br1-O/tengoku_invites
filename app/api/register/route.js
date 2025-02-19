@@ -10,17 +10,24 @@ export const POST = async (req) => {
 
     // Validaciones básicas
     if (!nombre || !apellido || !edad || !email || !entrada) {
-      return Response.json({ error: "Todos los campos son obligatorios" }, { status: 400 });
+      return new Response(
+        JSON.stringify({ error: "Todos los campos son obligatorios" }),
+        { status: 400 }
+      );
     }
 
     // Guardar en MongoDB con Prisma
+    let inscripcion;
     try {
-      await prisma.inscripcion.create({
+      inscripcion = await prisma.inscripcion.create({
         data: { nombre, apellido, edad: parseInt(edad), email, entrada: parseInt(entrada) },
       });
     } catch (dbError) {
       console.error("Error al guardar en la base de datos:", dbError);
-      return res.status(500).json({ error: "Error al guardar la inscripción en la base de datos" });
+      return new Response(
+        JSON.stringify({ error: "Error al guardar la inscripción en la base de datos" }),
+        { status: 500 }
+      );
     }
 
     // Configurar Nodemailer
@@ -35,7 +42,10 @@ export const POST = async (req) => {
       });
     } catch (mailerError) {
       console.error("Error al configurar el transportador de correo:", mailerError);
-      return res.status(500).json({ error: "Error al configurar el servicio de correo" });
+      return new Response(
+        JSON.stringify({ error: "Error al configurar el servicio de correo" }),
+        { status: 500 }
+      );
     }
 
     // Correo para organizadores
@@ -48,7 +58,10 @@ export const POST = async (req) => {
       });
     } catch (sendMailError) {
       console.error("Error al enviar el correo para los organizadores:", sendMailError);
-      return res.status(500).json({ error: "Error al enviar el correo a los organizadores" });
+      return new Response(
+        JSON.stringify({ error: "Error al enviar el correo a los organizadores" }),
+        { status: 500 }
+      );
     }
 
     // Correo de confirmación al usuario
@@ -61,13 +74,22 @@ export const POST = async (req) => {
       });
     } catch (sendMailError) {
       console.error("Error al enviar el correo de confirmación:", sendMailError);
-      return res.status(500).json({ error: "Error al enviar el correo de confirmación al usuario" });
+      return new Response(
+        JSON.stringify({ error: "Error al enviar el correo de confirmación al usuario" }),
+        { status: 500 }
+      );
     }
 
-    return res.status(200).json({ message: "Inscripción exitosa y email enviado" });
+    return new Response(
+      JSON.stringify({ message: "Inscripción exitosa y email enviado" }),
+      { status: 200 }
+    );
 
   } catch (error) {
     console.error("Error en el servidor:", error);
-    return Response.json({ error: "Error en el servidor" }, { status: 500 });
+    return new Response(
+      JSON.stringify({ error: "Error en el servidor" }),
+      { status: 500 }
+    );
   }
 };
