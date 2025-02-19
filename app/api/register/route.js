@@ -110,18 +110,11 @@ export const POST = async (req) => {
                   </div>
 
                   <div style="text-align: center; margin-bottom: 20px;">
-                      <img src="cid:poster_promo" alt="Promo Poster" style="width: 75vw; max-width: 500px; height: auto; display: block; margin: 0 auto;">
+                      <img src="https://i.imgur.com/llrhJUl.png" alt="Promo Poster" style="width: 75vw; max-width: 500px; height: auto; display: block; margin: 0 auto;">
                   </div>
               </div>
           </div>
-        `,
-        attachments: [
-          {
-            filename: 'poster_promo.png',
-            path: './public/images/poster_promo.png',
-            cid: 'poster_promo' // This CID will reference the image in the HTML
-          }
-        ]
+        `
       });
     } catch (sendMailError) {
       console.error("Error al enviar el correo de confirmación:", sendMailError);
