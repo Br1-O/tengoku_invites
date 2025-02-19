@@ -32,15 +32,42 @@ const RegisterPage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!form.nombre || !form.apellido || !form.email || !form.entrada || !isChecked) {
+        if (!form.nombre.trim() || !form.apellido.trim() || !form.email || !form.entrada || !isChecked) {
             setError("Todos los campos son obligatorios");
             return;
         }
-
-        if (!/^\d+$/.test(form.edad) || parseInt(form.edad) < 18) {
-            setError("Debes ser mayor de 18 años");
+        
+        // Validar que nombre y apellido solo contengan letras y espacios, y que no sean solo espacios
+        if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(form.nombre) || form.nombre.trim().length === 0) {
+            setError("El nombre solo puede contener letras y espacios, y no puede estar vacío");
             return;
         }
+        
+        if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(form.apellido) || form.apellido.trim().length === 0) {
+            setError("El apellido solo puede contener letras y espacios, y no puede estar vacío");
+            return;
+        }
+        
+        // Validar que la edad sea un número entre 18 y 99
+        if (!/^\d+$/.test(form.edad) || parseInt(form.edad) < 18) {
+            setError("Debes ser mayor de 18 años para participar.");
+            return;
+        }else if(parseInt(form.edad) >= 100){
+            setError("Debes tener hasta 99 años para participar.");
+            return;
+        }
+        
+        // Validar que el email tenga un formato correcto
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            setError("El email no es válido");
+            return;
+        }
+        
+        // Validar que la entrada sea un número mayor a 0
+        if (!/^\d+$/.test(form.entrada) || parseInt(form.entrada) <= 0) {
+            setError("El número de entrada debe ser un número mayor a 0");
+            return;
+        }        
 
         setError("");
 
