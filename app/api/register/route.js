@@ -17,9 +17,8 @@ export const POST = async (req) => {
     }
 
     // Guardar en MongoDB con Prisma
-    let inscripcion;
     try {
-      inscripcion = await prisma.inscripcion.create({
+      await prisma.inscripcion.create({
         data: { nombre, apellido, edad: parseInt(edad), email, entrada: parseInt(entrada) },
       });
     } catch (dbError) {
