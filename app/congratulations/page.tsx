@@ -106,7 +106,7 @@ const RegisterPage = () => {
           }).then(async(result) => {
             if (result.isConfirmed) {
                 
-                const res = await fetch("/api/inscribir", {
+                const res = await fetch("/api/register", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(form),
@@ -239,7 +239,7 @@ const RegisterPage = () => {
                             />
                             Acepto los
                         </label>
-                        <a href="/terms" className="text-blue-500 underline">términos y condiciones</a>.
+                        <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">términos y condiciones</a>.
                     </div>
 
 
