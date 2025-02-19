@@ -14,39 +14,57 @@ export const POST = async (req) => {
     }
 
     // Guardar en MongoDB con Prisma
-    const inscripcion = await prisma.inscripcion.create({
-      data: { nombre, apellido, edad: parseInt(edad), email, entrada: parseInt(entrada) },
-    });
-
-    console.log("EMAIL_USER:", process.env.EMAIL_USER);
-    console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
+    try {
+      await prisma.inscripcion.create({
+        data: { nombre, apellido, edad: parseInt(edad), email, entrada: parseInt(entrada) },
+      });
+    } catch (dbError) {
+      console.error("Error al guardar en la base de datos:", dbError);
+      return res.status(500).json({ error: "Error al guardar la inscripción en la base de datos" });
+    }
 
     // Configurar Nodemailer
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    let transporter;
+    try {
+      transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+    } catch (mailerError) {
+      console.error("Error al configurar el transportador de correo:", mailerError);
+      return res.status(500).json({ error: "Error al configurar el servicio de correo" });
+    }
 
     // Correo para organizadores
-    await transporter.sendMail({
-      from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
-      to: `${process.env.EMAIL_USER}`,
-      subject: "Nueva inscripción",
-      text: `Nueva inscripción recibida:\n\nNombre: ${nombre}\nApellido: ${apellido}\nEdad: ${edad}\nEmail: ${email}\nEntrada: ${entrada}`,
-    });
+    try {
+      await transporter.sendMail({
+        from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
+        to: `${process.env.EMAIL_USER}`,
+        subject: "Nueva inscripción",
+        text: `Nueva inscripción recibida:\n\nNombre: ${nombre}\nApellido: ${apellido}\nEdad: ${edad}\nEmail: ${email}\nEntrada: ${entrada}`,
+      });
+    } catch (sendMailError) {
+      console.error("Error al enviar el correo para los organizadores:", sendMailError);
+      return res.status(500).json({ error: "Error al enviar el correo a los organizadores" });
+    }
 
     // Correo de confirmación al usuario
-    await transporter.sendMail({
-      from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
-      to: email,
-      subject: "Confirmación de inscripción",
-      text: `Hola ${nombre},\n\nTu inscripción ha sido recibida exitosamente. Recuerda presentarte con tu entrada.`,
-    });
+    try {
+      await transporter.sendMail({
+        from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
+        to: email,
+        subject: "Confirmación de inscripción",
+        text: `Hola ${nombre},\n\nTu inscripción ha sido recibida exitosamente. Recuerda presentarte con tu entrada.`,
+      });
+    } catch (sendMailError) {
+      console.error("Error al enviar el correo de confirmación:", sendMailError);
+      return res.status(500).json({ error: "Error al enviar el correo de confirmación al usuario" });
+    }
 
-    return Response.json({ message: "Inscripción exitosa y email enviado" });
+    return res.status(200).json({ message: "Inscripción exitosa y email enviado" });
 
   } catch (error) {
     console.error("Error en el servidor:", error);
