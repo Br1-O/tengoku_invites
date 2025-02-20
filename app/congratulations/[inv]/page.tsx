@@ -1,8 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import { useParams, useRouter } from "next/navigation";
+import { getInviteValueFromToken } from "@/lib/getTokenInviteValues";
 
+  
 const RegisterPage = () => {
+
+    const router = useRouter();
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const inv = useParams().inv;
+    const token = inv as string;
+
     const [form, setForm] = useState({
         nombre: "",
         apellido: "",
@@ -13,7 +23,34 @@ const RegisterPage = () => {
 
     const [isChecked, setIsChecked] = useState(false);
     const [firstClick, setFirstClick] = useState(true);
+    const [inviteNumber, setInviteNumber] = useState("");
     const [error, setError] = useState("");
+
+    useEffect(() => {
+
+        const fetchInviteNumber = async() => {
+            try {
+                const inviteValue = await getInviteValueFromToken(token);
+
+                if (!token || !inviteValue)
+                {
+                    router.replace("/reject");
+                }else{
+                    setIsLoaded(true);
+                    setInviteNumber(inviteValue);
+                }
+              } catch (error) {
+                console.error("Error fetching invite number:", error);
+              }
+        }
+
+        fetchInviteNumber();
+
+    }, [token, router]); //
+
+    if (!isLoaded) {
+        return null;
+    }
   
     const handleCheckboxClick = () => {
       if (firstClick) {
@@ -31,6 +68,8 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        form.entrada = inviteNumber;
 
         if (!form.nombre.trim() || !form.apellido.trim() || !form.email || !form.entrada || !isChecked) {
             setError("Todos los campos son obligatorios");
@@ -157,7 +196,7 @@ const RegisterPage = () => {
 
             <div className="flex items-center justify-center flex-col my-3">
                 <div className="text-3xl md:text-6xl text-white px-4 p-2 rounded-md pb-4 w-fit text-center">
-                    Completá con tus datos:
+                    Completá el formulario, jugador {inviteNumber}:
                 </div>
             </div>
 
@@ -216,17 +255,12 @@ const RegisterPage = () => {
                     className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
                     />
 
-                    <label 
-                    htmlFor="entrada" 
-                    className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold"> 
-                        N° de entrada 
-                    </label>
                     <input 
                     type="text" 
                     name="entrada" 
                     placeholder="Número de entrada" 
                     onChange={handleChange} 
-                    className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
+                    hidden
                     />
 
                     <div className="flex flex-row gap-1">
