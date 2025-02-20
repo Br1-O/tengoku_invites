@@ -1,6 +1,4 @@
-import Link from 'next/link'
- 
-export default function NotFound() {
+ export default function NotFound() {
   return (
     <div className="w-full min-h-[100vh] flex items-center justify-center flex-col bg-black bg-opacity-80 py-10 lg:py-20 px-5 rounded-lg border-2 border-slate-700">
         <div className="flex items-center justify-center flex-col">
