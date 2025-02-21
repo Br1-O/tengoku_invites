@@ -186,7 +186,7 @@ const RegisterPage = () => {
                       });
 
                     setTimeout(() => {
-                        router.replace(`registered/${inviteNumber}`);
+                        router.replace(`/registered/${inviteNumber}`);
                     }, 1000);
                 } else {
                     const Toast = Swal.mixin({
