@@ -34,7 +34,7 @@ const RegisterPage = () => {
 
                 if (!token || !inviteValue)
                 {
-                    router.replace("/reject");
+                    router.replace("/");
                 }else{
                     setIsLoaded(true);
                     setInviteNumber(inviteValue);
