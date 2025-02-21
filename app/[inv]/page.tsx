@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 import { useParams, useRouter } from "next/navigation";
-import { getInviteValueFromToken } from "@/lib/getTokenInviteValues";
-
   
 const RegisterPage = () => {
 
@@ -27,26 +25,46 @@ const RegisterPage = () => {
     const [error, setError] = useState("");
 
     useEffect(() => {
+        const fetchInviteNumber = async () => {
+          try {
+            const res = await fetch(`/api/invites/getValue?token=${token}`);
+            const data = await res.json();
 
-        const fetchInviteNumber = async() => {
-            try {
-                const inviteValue = await getInviteValueFromToken(token);
+            if (res.ok && data.inviteValue) {
+                const inviteValue = String(parseInt(data.inviteValue, 10));
+                
+                const dataToSend = { inviteValue: inviteValue };
 
-                if (!token || !inviteValue)
-                {
-                    router.replace("/");
-                }else{
-                    setIsLoaded(true);
-                    setInviteNumber(inviteValue);
+                const res2 = await fetch("/api/invites/checkValue", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dataToSend),
+                });
+
+                if (res2.ok) {
+                    const data2 = await res2.json();
+    
+                    if (data2.isRegistered){
+                        router.replace(`/register-error/${data.inviteValue}`)
+                    }else{
+                        setInviteNumber(data.inviteValue);
+                        setIsLoaded(true);
+                    };
                 }
-              } catch (error) {
-                console.error("Error fetching invite number:", error);
-              }
+            } else {
+              router.replace('/');
+            }
+          } catch (error) {
+            console.error("Error fetching invite number:", error);
+          }
+        };
+    
+        if (token) {
+          fetchInviteNumber();
+        } else {
+          router.replace('/');
         }
-
-        fetchInviteNumber();
-
-    }, [token, router]); //
+    }, [token, router]);
 
     if (!isLoaded) {
         return null;
@@ -156,7 +174,7 @@ const RegisterPage = () => {
                         toast: true,
                         position: "bottom-end",
                         showConfirmButton: false,
-                        timer: 3000,
+                        timer: 1000,
                         didOpen: (toast) => {
                           toast.onmouseenter = Swal.stopTimer;
                           toast.onmouseleave = Swal.resumeTimer;
@@ -166,6 +184,10 @@ const RegisterPage = () => {
                         icon: "success",
                         title: "¡Inscripción enviada! Revisa tu correo."
                       });
+
+                    setTimeout(() => {
+                        router.replace(`registered/${inviteNumber}`);
+                    }, 1000);
                 } else {
                     const Toast = Swal.mixin({
                         toast: true,
@@ -213,7 +235,7 @@ const RegisterPage = () => {
                     name="nombre" 
                     placeholder="Ingresa tu nombre" 
                     onChange={handleChange} 
-                    className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
+                    className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
                     />
 
                     <label 
@@ -226,7 +248,7 @@ const RegisterPage = () => {
                     name="apellido" 
                     placeholder="Ingresa tu apellido" 
                     onChange={handleChange} 
-                    className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
+                    className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
                     />
 
                     <label 
@@ -239,7 +261,7 @@ const RegisterPage = () => {
                     name="edad" 
                     placeholder="Ingresa tu edad" 
                     onChange={handleChange} 
-                    className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
+                    className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
                     />
 
                     <label 
@@ -252,7 +274,7 @@ const RegisterPage = () => {
                     name="email" 
                     placeholder="Ingresa tu email" 
                     onChange={handleChange} 
-                    className="block w-full md:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
+                    className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50" 
                     />
 
                     <input 
@@ -264,7 +286,7 @@ const RegisterPage = () => {
                     />
 
                     <div className="flex flex-row gap-1">
-                        <label className="flex items-center space-x-2 cursor-pointer">
+                        <label className="flex items-center cursor-pointer text-nowrap">
                             <input
                             type="checkbox"
                             checked={isChecked}
@@ -273,7 +295,7 @@ const RegisterPage = () => {
                             />
                             Acepto los
                         </label>
-                        <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">términos y condiciones</a>.
+                        <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline text-nowrap">términos y condiciones</a>.
                     </div>
 
 

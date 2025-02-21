@@ -3,6 +3,10 @@ import nodemailer from "nodemailer";
 
 export const POST = async (req) => {
   try {
+    if (!req.body) {
+      return new Response(JSON.stringify({ error: "Request body is empty" }), { status: 400 });
+    }
+
     const body = await req.json();
     const { nombre, apellido, edad, email, entrada } = body;
 
