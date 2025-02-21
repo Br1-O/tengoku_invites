@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import client from "@/lib/prismaInstance";
 import nodemailer from "nodemailer";
-
-const prisma = new PrismaClient();
 
 export const POST = async (req) => {
   try {
@@ -18,7 +16,7 @@ export const POST = async (req) => {
 
     // Guardar en MongoDB con Prisma
     try {
-      await prisma.inscripcion.create({
+      await client.inscripcion.create({
         data: { nombre, apellido, edad: parseInt(edad), email, entrada: parseInt(entrada) },
       });
     } catch (dbError) {
