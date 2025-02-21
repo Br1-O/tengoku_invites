@@ -23,8 +23,11 @@ export const POST = async(req) => {
                 },
             })
 
-            isRegistered ? isRegistered = true : isRegistered = false;
-            
+            if (isRegistered) {
+                isRegistered = true;
+            } else {
+                isRegistered = false;
+            }
         } catch (dbError) {
             console.error("Error al buscar en la base de datos:", dbError);
             return new Response(
