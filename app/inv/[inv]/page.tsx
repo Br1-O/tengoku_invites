@@ -22,6 +22,11 @@ interface InviteResponse {
   inviteValue: string
 }
 
+interface RegisterResponse {
+    message?: string;
+    error?: string;
+}
+
 // API functions
 const fetchInviteNumber = async (token: string): Promise<InviteResponse> => {
   const res = await fetch(`/api/invites/getValue?token=${token}`)
@@ -39,7 +44,7 @@ const checkInviteValue = async (inviteValue: string): Promise<{ isRegistered: bo
   return res.json()
 }
 
-const registerUser = async (form: FormData): Promise<any> => {
+const registerUser = async (form: FormData): Promise<RegisterResponse> => {
   const res = await fetch("/api/register", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -94,7 +99,8 @@ const RegisterPage = () => {
             setInviteNumber(inviteData.inviteValue)
           }
         } catch (error) {
-          router.replace("/")
+            console.error("Error: ", error);
+            router.replace("/")
         }
       } else if (inviteData) {
         router.replace("/")
