@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ya estás registrado',
+  description: 'Ya se ha registrado un envio de datos para participar del evento con ese número de entrada.',
+};
+
 const RegisterErrorLayout = ({
     children
 }: {

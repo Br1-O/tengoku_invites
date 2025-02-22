@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Registro exitoso',
+  description: '¡Te has registrado con éxito para participar del evento!',
+};
+
 const RegisteredLayout = ({
     children
 }: {

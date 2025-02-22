@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tengokugame.vercel.app"),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`
@@ -24,7 +25,44 @@ export const metadata: Metadata = {
       url: "favicon.ico",
       href: "favicon.ico"
     }
-  ]
+  ],
+  keywords: ["convencion", "anime", "Tengoku", "juegos del calamar", "squid game", "squid games", "concurso", "vida real", "cosplay", "premios", "mar del plata", "buenos aires"],
+  authors: [{ name: "Bruno O.", url: "www.linkedin.com/in/bortuno" }],
+  publisher: "Tengoku Imperial",
+  generator: "Next.js",
+  referrer: "no-referrer-when-downgrade",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://tengokugame.vercel.app"
+  },
+  openGraph: {
+    type: "website",
+    url: "https://tengokugame.vercel.app",
+    siteName: "Tengoku Games",
+    title: "Tengoku Games | Bienvenido",
+    description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+    images: [
+      {
+        url: "/images/poster_promo.png",
+        width: 1200,
+        height: 630,
+        alt: "Imagen promocional de Tengoku games",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@TengokuGames",
+    title: "Tengoku Games | Bienvenido",
+    description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+    images: ["/images/poster_promo.png"],
+  }
+};
+
+export const viewport = {
+  themeColor: "#ffffff",
+  colorScheme: "light dark",
 };
 
 export default function RootLayout({

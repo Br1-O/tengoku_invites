@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Términos y condiciones',
+  description: 'Bases, términos y condiciones para participar del evento.',
+};
+
 import React from "react";
 
 export default function Terms() {

@@ -1,3 +1,16 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Registro',
+  description: 'Registrate para participar del evento.',
+  icons: [
+    {
+      url: "favicon.ico",
+      href: "favicon.ico"
+    }
+  ],
+};
+
 const RegisterLayout = ({
     children
 }: {
