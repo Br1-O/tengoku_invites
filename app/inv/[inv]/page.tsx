@@ -19,7 +19,8 @@ interface FormData {
 }
 
 interface InviteResponse {
-  inviteValue: string
+  inviteValue?: string 
+  error?: string
 }
 
 interface RegisterResponse {
@@ -30,7 +31,7 @@ interface RegisterResponse {
 // API functions
 const fetchInviteNumber = async (token: string): Promise<InviteResponse> => {
   const res = await fetch(`/api/invites/getValue?token=${token}`)
-  if (!res.ok) throw new Error("No se pudo obtener el número de invitación")
+  if (!res.ok) return {error: "No se encontró el número de invitación"};
   return res.json()
 }
 
@@ -79,6 +80,7 @@ const RegisterPage = () => {
 
   const { inv: token } = useParams()
 
+
   // Improved React Query implementation
   const { data: inviteData, isLoading } = useQuery({
     queryKey: ["invite", token],
@@ -86,6 +88,7 @@ const RegisterPage = () => {
     enabled: !!token,
     retry: false,
   })
+
 
   // Handle success case separately using useEffect
   useEffect(() => {
@@ -102,7 +105,7 @@ const RegisterPage = () => {
             console.error("Error: ", error);
             router.replace("/")
         }
-      } else if (inviteData) {
+      } else if (inviteData?.error) {
         router.replace("/")
       }
     }
@@ -113,17 +116,7 @@ const RegisterPage = () => {
   const mutation = useMutation({
     mutationFn: registerUser,
     onSuccess: () => {
-      Swal.fire({
-        icon: "success",
-        title: "¡Inscripción enviada! Revisa tu correo.",
-        toast: true,
-        position: "bottom-end",
-        showConfirmButton: false,
-        timer: 1000,
-      })
-      setTimeout(() => {
         router.replace(`/registered/${inviteNumber}`)
-      }, 1000)
     },
     onError: () => {
       Swal.fire({

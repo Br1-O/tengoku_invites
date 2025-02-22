@@ -19,6 +19,7 @@ export const GET = async(req) => {
                 { status: 400 }
             );
         }
+        
         return new Response(
             JSON.stringify({ inviteValue: inviteValue }),
             { status: 200 }
