@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: [
     {
-      url: "favicon.ico",
-      href: "favicon.ico"
+      url: "/favicon.ico",
+      href: "/favicon.ico"
     }
   ],
   keywords: ["convencion", "anime", "Tengoku", "juegos del calamar", "squid game", "squid games", "concurso", "vida real", "cosplay", "premios", "mar del plata", "buenos aires"],

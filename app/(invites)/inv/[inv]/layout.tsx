@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   description: 'Registrate para participar del evento.',
   icons: [
     {
-      url: "favicon.ico",
-      href: "favicon.ico"
+      url: "/favicon.ico",
+      href: "/favicon.ico"
     }
   ],
 };
