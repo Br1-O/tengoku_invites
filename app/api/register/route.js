@@ -1,4 +1,5 @@
 import client from "@/lib/prismaInstance";
+import { registerSchema } from "@/lib/validations/register";
 import nodemailer from "nodemailer";
 
 export const POST = async (req) => {
@@ -8,15 +9,18 @@ export const POST = async (req) => {
     }
 
     const body = await req.json();
-    const { nombre, apellido, edad, email, entrada } = body;
+
+    const validatedFields = registerSchema.safeParse(body);
 
     // Validaciones básicas
-    if (!nombre || !apellido || !edad || !email || !entrada) {
+    if (!validatedFields.success) {
       return new Response(
-        JSON.stringify({ error: "Todos los campos son obligatorios" }),
+        JSON.stringify({ error: parsed.error.flatten().fieldErrors }),
         { status: 400 }
       );
     }
+
+    const { nombre, apellido, edad, email, entrada } = body;
 
     // Guardar en MongoDB con Prisma
     try {

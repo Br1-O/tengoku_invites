@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react"
 import type React from "react"
 
+import { registerSchema } from "@/lib/validations/register";
+
 import Swal from "sweetalert2"
 import { useParams, useRouter } from "next/navigation"
 import { useQuery, useMutation, QueryClient, QueryClientProvider } from "@tanstack/react-query"
@@ -76,7 +78,9 @@ const RegisterPage = () => {
   const [isChecked, setIsChecked] = useState(false)
   const [firstClick, setFirstClick] = useState(true)
   const [inviteNumber, setInviteNumber] = useState("")
-  const [error, setError] = useState("")
+
+  const [error, setError] = useState<string | null>(null)
+  const [fieldErrors, setFieldErrors] = useState<{ [key: string]: string[] }>({})
 
   const { inv: token } = useParams()
 
@@ -140,48 +144,45 @@ const RegisterPage = () => {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+    // Clear field-specific error when user starts typing
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const newErrors = { ...prev }
+        delete newErrors[name]
+        return newErrors
+      })
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const updatedForm = { ...form, entrada: inviteNumber }
 
-    if (
-      !updatedForm.nombre.trim() ||
-      !updatedForm.apellido.trim() ||
-      !updatedForm.email ||
-      !updatedForm.entrada ||
-      !isChecked
-    ) {
-      setError("Todos los campos son obligatorios")
-      return
+    setError(null)
+    setFieldErrors({})
+
+    const validatedFields = registerSchema.safeParse(updatedForm);
+
+    // Validaciones básicas
+    if (!validatedFields.success) {
+      const errors = validatedFields.error.flatten().fieldErrors;
+  
+      type ErrorKeys = keyof typeof errors;
+
+      for (const key of Object.keys(errors) as ErrorKeys[]) {
+        if (errors[key] && errors[key]?.length > 0) {
+          setFieldErrors({ [key]: [errors[key]![0]] });
+          return;
+        }
+      }
     }
 
-    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(updatedForm.nombre) || updatedForm.nombre.trim().length === 0) {
-      setError("El nombre solo puede contener letras y espacios, y no puede estar vacío")
+    if (!isChecked) {
+      setError("Debes aceptar los términos y condiciones")
       return
     }
-
-    if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(updatedForm.apellido) || updatedForm.apellido.trim().length === 0) {
-      setError("El apellido solo puede contener letras y espacios, y no puede estar vacío")
-      return
-    }
-
-    if (!/^\d+$/.test(updatedForm.edad) || Number.parseInt(updatedForm.edad) < 18) {
-      setError("Debes ser mayor de 18 años para participar.")
-      return
-    } else if (Number.parseInt(updatedForm.edad) >= 100) {
-      setError("Debes tener hasta 99 años para participar.")
-      return
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(updatedForm.email)) {
-      setError("El email no es válido")
-      return
-    }
-
-    setError("")
 
     Swal.fire({
       title: "¡IMPORTANTE!",
@@ -255,10 +256,11 @@ const RegisterPage = () => {
             onChange={handleChange}
             className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50"
           />
+          {fieldErrors.nombre && <p className="text-yellow-300 text-sm my-1">{fieldErrors.nombre}</p>}
 
           <label
             htmlFor="apellido"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
           >
             Apellido
           </label>
@@ -269,10 +271,11 @@ const RegisterPage = () => {
             onChange={handleChange}
             className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50"
           />
+          {fieldErrors.apellido && <p className="text-yellow-300 text-sm my-1">{fieldErrors.apellido}</p>}
 
           <label
             htmlFor="edad"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
           >
             Edad
           </label>
@@ -283,10 +286,11 @@ const RegisterPage = () => {
             onChange={handleChange}
             className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50"
           />
+          {fieldErrors.edad && <p className="text-yellow-300 text-sm my-1">{fieldErrors.edad}</p>}
 
           <label
             htmlFor="email"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
           >
             Email
           </label>
@@ -297,10 +301,11 @@ const RegisterPage = () => {
             onChange={handleChange}
             className="block w-full lg:w-4/5 xl:w-3/5 p-2 mb-2 rounded-md bg-slate-500 bg-opacity-50"
           />
+          {fieldErrors.email && <p className="text-yellow-300 text-sm my-1">{fieldErrors.email}</p>}
 
           <input type="text" name="entrada" placeholder="Número de entrada" onChange={handleChange} hidden />
 
-          <div className="flex flex-row gap-1">
+          <div className="flex flex-row gap-1 my-5">
             <label className="flex items-center cursor-pointer text-nowrap">
               <input type="checkbox" checked={isChecked} onChange={handleCheckboxClick} className="w-4 h-4 mr-2" />
               Acepto los
@@ -310,6 +315,8 @@ const RegisterPage = () => {
             </a>
             .
           </div>
+
+          {error && <p className="text-yellow-300 my-2">{error}</p>}
           
           <button
             type="submit"
@@ -318,7 +325,6 @@ const RegisterPage = () => {
           >
             {mutation.isPending ? "Enviando..." : "Enviar"}
           </button>
-          {error && <p className="text-red-500 mt-2">{error}</p>}
         </form>
       </div>
     </div>
