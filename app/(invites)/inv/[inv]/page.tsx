@@ -232,13 +232,13 @@ const RegisterPage = () => {
         </h1>
       </div>
 
-      <div className="flex items-center justify-center flex-col my-3">
+      <div className="flex items-center justify-center flex-col mt-3 mb-1">
         <div className="text-3xl md:text-6xl text-white px-4 p-2 rounded-md pb-4 w-fit text-center">
-          Completá el formulario, jugador {inviteNumber}:
+          Completá el formulario, <span className="whitespace-nowrap">jugador {inviteNumber}:</span>
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 text-white my-4 mx-auto">
+      <div className="w-full md:w-1/2 text-white mt-1 mb-4 mx-auto">
         <form
           onSubmit={handleSubmit}
           className="w-full flex flex-col items-center justify-center p-6 rounded-md text-start"
@@ -321,7 +321,8 @@ const RegisterPage = () => {
           <button
             type="submit"
             disabled={mutation.isPending}
-            className="md:text-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white px-4 py-2 mt-4 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+            className="md:text-xl bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white px-4 py-2 mt-4 rounded-md disabled:opacity-50 disabled:cursor-not-allowed
+            hover:brightness-110 hover:bg-gradient-to-l hover:from-fuchsia-500 hover:to-pink-500 hover:scale-105"
           >
             {mutation.isPending ? "Enviando..." : "Enviar"}
           </button>
