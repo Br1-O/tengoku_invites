@@ -56,19 +56,26 @@ export const POST = async (req) => {
     // Correo para organizadores
     try {
       await transporter.sendMail({
-        from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
+        from: `"<System notification> Tengoku Games" <${process.env.EMAIL_USER}>`,
         to: `${process.env.EMAIL_USER}`,
         subject: "Nueva inscripción",
         html: `
-          <div style="background-color: #2d3748; padding: 20px; border-radius: 10px; color: white; font-family: 'Arial', sans-serif;">
-            <h2 style="font-size: 24px; font-weight: bold; color: #fbbf24;">Nueva inscripción recibida</h2>
-            <p style="font-size: 18px; line-height: 1.6;">
-              <strong>Nombre:</strong> ${nombre}<br>
-              <strong>Apellido:</strong> ${apellido}<br>
-              <strong>Edad:</strong> ${edad}<br>
-              <strong>Email:</strong> ${email}<br>
-              <strong>Entrada:</strong> ${entrada}
-            </p>
+          <div style="background: linear-gradient(to right, #a00000, #380000); padding: 1.5rem; border-radius: 10px; color: white; font-family: Arial, sans-serif; width: 100%;">
+              <h2 style="font-size: 24px; font-weight: bold; color: #fbbf24; text-align: center; margin-bottom: 1rem;">
+                  Nueva inscripción recibida
+              </h2>
+
+              <p style="font-size: 18px; font-weight: bold; color: #FFF; text-align: center; margin: 1rem auto;">
+                <strong>· Nombre:</strong> ${nombre}<br>
+                <strong>· Apellido:</strong> ${apellido}<br>
+                <strong>· Edad:</strong> ${edad}<br>
+                <strong>· Email:</strong> ${email}<br>
+                <strong>· Entrada:</strong> ${entrada}
+              </p>
+
+              <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.25rem 1rem; border-radius: 15px; font-size: 18px; font-weight: 700; line-height: 1.6; color: #FFF; margin: 0.25rem auto; text-align: center;">
+                  Recuerda presentarte con tu entrada y documento al confirmar tu inscripción.
+              </p>
           </div>
         `
       });
@@ -87,37 +94,49 @@ export const POST = async (req) => {
         to: email,
         subject: "Confirmación de inscripción",
         html: `
-          <div style="background-color: #2d3748; padding: 20px; border-radius: 10px; color: white; font-family: 'Arial', sans-serif;">
-              <div style="text-align: center; margin-bottom: 20px;">
+          <div style="background: linear-gradient(to right, #a00000, #380000); padding: 1.5rem; border-radius: 10px; color: white; font-family: Arial, sans-serif; width: 100%;">
+              <div style="text-align: center; margin-bottom: 1.5rem;">
                   <h1 style="font-size: 38px; font-weight: bold; color: #fff;">
                       ¡Inscripción exitosa!
                   </h1>
               </div>
 
-              <div style="text-align: center;">
-                  <div style="font-size: 24px; font-weight: bold; color: #fbbf24;">
-                      Hola ${nombre},
-                  </div>
-              </div>
-
-              <div style="text-align: center;">
-                  <p style="font-size: 24px; font-weight: bold; color: #fbbf24;">
-                      Tu inscripción ha sido recibida exitosamente.
-                  </p>
-
-                  <p style="font-size: 18px; line-height: 1.6; color: #fbbf24;">
-                      Recuerda presentarte con tu entrada.
-                  </p>
-
-                  <div style="font-size: 18px; line-height: 1.6;">
-                      <p>
-                          ¡Gracias por participar en el evento!
+              <div style="width: max-content; margin: 0 auto; padding: 1rem;">
+                  <div style="text-align: center; background: linear-gradient(to right, #200000, #300000); padding: 0.5rem; border-radius: 15px;">
+                      <div style="font-size: 20px; font-weight: bold; color: #FFF;">
+                          ¡Hola, Bruno!
+                      </div>
+                      <p style="font-size: 20px; font-weight: bold; color: #FFF; margin: 1rem auto;">
+                          Tu inscripción ha sido recibida exitosamente.
                       </p>
                   </div>
 
-                  <div style="text-align: center; margin-bottom: 20px;">
-                      <img src="https://i.imgur.com/llrhJUl.png" alt="Promo Poster" style="width: 75vw; max-width: 500px; height: auto; display: block; margin: 0 auto;">
-                  </div>
+                  <p style="font-size: 18px; font-weight: bold; color: #FFF; margin: 1rem auto;">
+                    Confirma que tus datos sean correctos:
+                  </p>
+
+                  <p style="font-size: 18px; font-weight: bold; color: #FFF; margin: 1rem auto;">
+                      <strong>· Nombre:</strong> ${nombre}<br>
+                      <strong>· Apellido:</strong> ${apellido}<br>
+                      <strong>· Edad:</strong> ${edad}<br>
+                      <strong>· Email:</strong> ${email}<br>
+                      <strong>· Entrada:</strong> ${entrada}
+                  </p>
+              </div>
+
+              <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.25rem 1rem; border-radius: 15px; font-size: 18px; font-weight: 700; line-height: 1.6; color: #FFF; margin: 0.25rem auto;">
+                  Recuerda presentarte con tu entrada y documento al confirmar tu inscripción.
+              </p>
+
+              <div style="text-align: center; margin: 1.25rem;">
+                  <img src="https://i.imgur.com/AU2oITs.jpeg" alt="Promo Poster" style="width: 75vw; max-width: 500px; height: auto; display: block; margin: 0 auto;" />
+              </div>
+
+              <div style="text-align: center; font-size: 18px; line-height: 1.6;">
+                  <p>
+                    ¡Gracias por participar en el evento!
+                  </p>
+              </div>
               </div>
           </div>
         `

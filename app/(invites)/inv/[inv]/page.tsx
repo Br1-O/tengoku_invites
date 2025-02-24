@@ -245,7 +245,7 @@ const RegisterPage = () => {
         >
           <label
             htmlFor="nombre"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mb-1"
           >
             Nombre
           </label>
@@ -260,7 +260,7 @@ const RegisterPage = () => {
 
           <label
             htmlFor="apellido"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5 mb-1"
           >
             Apellido
           </label>
@@ -275,7 +275,7 @@ const RegisterPage = () => {
 
           <label
             htmlFor="edad"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5 mb-1"
           >
             Edad
           </label>
@@ -290,7 +290,7 @@ const RegisterPage = () => {
 
           <label
             htmlFor="email"
-            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5"
+            className="bg-gradient-to-r from-fuchsia-500 to-pink-500 bg-clip-text text-transparent text-xl font-bold mt-5 mb-1"
           >
             Email
           </label>

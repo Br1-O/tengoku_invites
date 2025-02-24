@@ -22,7 +22,7 @@ html, body {
 body {
   position: relative;
   color: var(--foreground);
-  background-image: url("../public/images/poster_dandadan.png");
+  background-image: url("../public/images/poster_dandadan.webp");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
