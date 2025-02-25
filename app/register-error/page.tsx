@@ -1,5 +1,4 @@
-// La página será estática y cacheada permanentemente hasta el próximo deploy
-export const dynamic = 'force-static';
+export const revalidate = false; // Fully static, no revalidation
 
 const RegisterPage = () => {
 
