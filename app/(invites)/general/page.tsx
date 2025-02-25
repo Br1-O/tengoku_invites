@@ -3,6 +3,9 @@ export const metadata = {
     description: "Pagina de rechazo para participar de los juegos de Tengoku",
 };
 
+// La página será estática y cacheada permanentemente hasta el próximo deploy
+export const dynamic = 'force-static';
+
 const RejectPage = () => {
     return (
         <main className="min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2">

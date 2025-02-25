@@ -1,11 +1,7 @@
-"use client";
+// La página será estática y cacheada permanentemente hasta el próximo deploy
+export const dynamic = 'force-static';
 
-import { useParams } from "next/navigation";
-  
 const RegisterPage = () => {
-
-        const inviteValue = useParams().inv;
-        const inviteNumber = inviteValue as string;
 
     return (
         <div className="w-full flex items-center justify-center flex-col bg-black bg-opacity-80 py-10 lg:py-20 px-5 rounded-lg border-2 border-slate-700">
@@ -16,7 +12,7 @@ const RegisterPage = () => {
             </div>
 
             <div className='text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto'>
-                Si posees la entrada N°{inviteNumber} y vos no realizaste la carga de tus datos anteriormente, por favor comunicate con la organización para poder registrar tus datos apropiadamente.
+                Si vos no realizaste la carga de tus datos anteriormente, por favor comunicate con la organización para poder registrar tus datos apropiadamente.
                 Ten en cuenta que se te pedirá la entrada durante el evento.
             </div>
 

@@ -101,7 +101,7 @@ const RegisterPage = () => {
         try {
           const response = await checkInviteValue(inviteData.inviteValue)
           if (response.isRegistered) {
-            router.replace(`/register-error/${inviteData.inviteValue}`)
+            router.replace(`/register-error`)
           } else {
             setInviteNumber(inviteData.inviteValue)
           }
