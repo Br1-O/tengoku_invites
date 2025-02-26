@@ -2,6 +2,8 @@ import client from "@/lib/prismaInstance";
 import { registerSchema } from "@/lib/validations/register";
 import nodemailer from "nodemailer";
 
+export const dynamic = "force-dynamic"; 
+
 export const POST = async (req) => {
   try {
     if (!req.body) {

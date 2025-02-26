@@ -1,5 +1,7 @@
 import { getInviteValueFromToken } from "@/lib/getTokenInviteValues";
 
+export const dynamic = "force-dynamic"; 
+
 export const GET = async(req) => {
     const token = req.nextUrl.searchParams.get("token");;
 
