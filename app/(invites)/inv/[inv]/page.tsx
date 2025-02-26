@@ -7,6 +7,7 @@ import { registerSchema } from "@/lib/validations/register";
 import Swal from "sweetalert2"
 import { useParams, useRouter } from "next/navigation"
 import { useQuery, useMutation, QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import Loader from "@/app/components/loadingOverlay/Loader";
 
 // Create a client
 const queryClient = new QueryClient()
@@ -218,9 +219,7 @@ const RegisterPage = () => {
   // Show loading state for the entire page
   if (isLoading || !inviteNumber) {
     return (
-      <div className="w-full h-screen flex items-center justify-center">
-        <div className="text-white text-xl">Cargando...</div>
-      </div>
+      <Loader />
     );
   }
 

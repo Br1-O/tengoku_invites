@@ -4,6 +4,7 @@ import "./globals.css";
 import siteConfig from "@/config/site";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import LoadingOverlay from "./components/loadingOverlay/loadingOverlay";
 
 
 const geistSans = Geist({
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <LoadingOverlay />
         {children}
         <Analytics />
         <SpeedInsights />
