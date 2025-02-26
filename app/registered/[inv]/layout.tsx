@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 
-export const dynamic = "force-dynamic"; 
-
 export const metadata: Metadata = {
   title: 'Registro exitoso',
   description: '¡Te has registrado con éxito para participar del evento!',

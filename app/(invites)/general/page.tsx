@@ -3,8 +3,13 @@ export const metadata = {
     description: "Pagina de rechazo para participar de los juegos de Tengoku",
 };
 
-export const revalidate = false; // Fully static, no revalidation
-
+//make page static so it can be cached
+export async function getStaticProps() {
+    return {
+      props: {},
+    };
+}
+  
 const RejectPage = () => {
     return (
         <main className="min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2">

@@ -1,3 +1,4 @@
+import React from "react";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,7 +6,12 @@ export const metadata: Metadata = {
   description: 'Bases, términos y condiciones para participar del evento.',
 };
 
-import React from "react";
+//make page static so it can be cached
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
 
 export default function Terms() {
   return (

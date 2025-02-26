@@ -1,4 +1,9 @@
-export const revalidate = false; // Fully static, no revalidation
+//make page static so it can be cached
+export async function getStaticProps() {
+    return {
+      props: {},
+    };
+}
 
 const RegisterPage = () => {
 
