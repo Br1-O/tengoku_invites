@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   ],
 };
 
+export const dynamic = "force-dynamic"; 
+
 const RegisterLayout = ({
     children
 }: {

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
+  output: "export", // Makes all pages static by default
   experimental: {
-    appDir: true, // Keep if using App Router
+    appDir: true, // If you're using the app router
   },
 };
 
