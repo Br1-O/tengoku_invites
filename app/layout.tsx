@@ -4,7 +4,8 @@ import "./globals.css";
 import siteConfig from "@/config/site";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import LoadingOverlay from "./components/loadingOverlay/loadingOverlay";
+import LoadingOverlay from "./components/loadingOverlay/LoadingOverlay";
+
 
 
 const geistSans = Geist({
