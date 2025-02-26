@@ -1,17 +1,13 @@
-import React from "react";
 import { Metadata } from 'next';
+import React from "react";
 
 export const metadata: Metadata = {
   title: 'Términos y condiciones',
   description: 'Bases, términos y condiciones para participar del evento.',
 };
 
-//make page static so it can be cached
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}
+export const dynamic = 'force-static'; // Forces static behavior
+export const revalidate = false;
 
 export default function Terms() {
   return (

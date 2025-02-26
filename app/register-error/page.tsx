@@ -1,9 +1,5 @@
-//make page static so it can be cached
-export async function getStaticProps() {
-    return {
-      props: {},
-    };
-}
+export const dynamic = 'force-static'; // Forces static behavior
+export const revalidate = false;
 
 const RegisterPage = () => {
 
