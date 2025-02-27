@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
     images: [
       {
-        url: "/images/poster_promo.png",
+        url: "/images/poster_promo.webp",
         width: 1200,
         height: 630,
         alt: "Imagen promocional de Tengoku games",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     site: "@TengokuGames",
     title: "Tengoku Games | Bienvenido",
     description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
-    images: ["/images/poster_promo.png"],
+    images: ["/images/poster_promo.webp"],
   }
 };
 
