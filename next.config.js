@@ -28,5 +28,23 @@ export async function headers() {
         },
       ],
     },
+    {
+      source: '/about-us',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable', // Cache for 1 year
+        },
+      ],
+    },
+    {
+      source: '/',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=31536000, immutable', // Cache for 1 year
+        },
+      ],
+    },
   ];
 }
