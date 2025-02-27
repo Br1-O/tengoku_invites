@@ -52,37 +52,37 @@ export default function Home() {
             <SocialButton
               icon={<InstagramIcon className="w-6 h-6" />}
               text="NUESTRO INSTAGRAM"
-              href="https://instagram.com/tengokuimperial"
+              href="https://www.instagram.com/tengokuanime"
             />
 
             <SocialButton
               icon={<Facebook className="w-6 h-6" />}
               text="NUESTRO FACEBOOK"
-              href="https://facebook.com/tengokuimperial"
+              href="https://www.facebook.com/ConvencionTengoku"
             />
 
             <SocialButton
               icon={<Youtube className="w-6 h-6" />}
               text="CANAL DE YOUTUBE"
-              href="https://youtube.com/tengokuimperial"
+              href="https://www.youtube.com/@Tengokuimperial23"
             />
 
             <SocialButton
               icon={<Mail className="w-6 h-6" />}
               text="VENTA DE ENTRADAS"
-              href="mailto:entradas@tengokuimperial.com"
+              href="https://www.instagram.com/p/DFsv-Jfvv5k/?img_index=1"
             />
 
             <SocialButton
               icon={<MapPin className="w-6 h-6" />}
               text="UBICACIÓN PRÓXIMO EVENTO"
-              href="https://maps.google.com"
+              href="https://www.google.com/maps/place/Saavedra+3050,+B7600+Mar+del+Plata,+Provincia+de+Buenos+Aires/@-38.0123555,-57.5636693,17z/data=!4m6!3m5!1s0x9584dea2c34d3b01:0x6401d2133bdaa294!8m2!3d-38.0123555!4d-57.5636693!16s%2Fg%2F11f_knfqqs?entry=ttu&g_ep=EgoyMDI1MDIyNC4wIKXMDSoASAFQAw%3D%3D"
             />
 
             <SocialButton 
                 icon={<HomeIcon className="w-6 h-6" />} 
                 text="PÁGINA WEB" 
-                href="https://tengokuimperial.com" 
+                href="https://tengoku.com.ar/" 
             />
           </div>
         </div>
