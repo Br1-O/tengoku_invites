@@ -4,7 +4,7 @@ export const revalidate = false;
 import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Instagram, Facebook, Youtube, Mail, MapPin, Calendar, MapPinned, HomeIcon, InstagramIcon } from "lucide-react"
+import { Facebook, Youtube, Mail, MapPin, Calendar, MapPinned, HomeIcon, InstagramIcon } from "lucide-react"
 
 export default function Home() {
   return (

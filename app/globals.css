@@ -38,7 +38,7 @@ body::before {
   content: "";
   position: absolute;
   inset: 0; /* Covers entire body */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1));  /* Adjust opacity here */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));  /* Adjust opacity here */
   z-index: -1; /* Places it behind all content */
 }
 
