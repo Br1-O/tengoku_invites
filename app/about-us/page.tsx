@@ -14,7 +14,7 @@ export default function AboutUs() {
           {/* Left Column - Logo and Info */}
           <div className="flex flex-col items-start md:items-start md:w-1/2">
             {/* Logo */}
-            <div className="mb-6">
+            <div className="mb-6 self-center md:self-auto">
               <Image
                 src="/logo-tengoku.png"
                 alt="Tengoku Imperial Logo"
