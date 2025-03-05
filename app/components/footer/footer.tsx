@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SocialMediaBar from "../btns/socialMediaBar";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -7,9 +8,16 @@ export default function Footer() {
         <div className="mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col justify-center items-center">
-              <a href="/#cover">
-                <img src="/logo-tengoku-game.webp" className="logo max-w-[10rem] h-auto cursor-pointer mt-2 mb-5"></img>
-              </a>
+              <Link href="/#cover">
+                <Image
+                  src="/logo-tengoku-game.webp"
+                  alt= "logo Tengoku Games"
+                  className="logo object-contain max-w-[10rem] h-auto cursor-pointer mt-2 mb-5"
+                  layout="responsive"
+                  width={1} 
+                  height={1}
+                />
+              </Link>
               <p className="text-gray-400 mb-4 text-center">El juego definitivo de supervivencia.</p>
                 <SocialMediaBar />
             </div>

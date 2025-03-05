@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 interface Sponsor {
   id: number
   name: string
@@ -15,7 +17,14 @@ export default function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
         {/* Duplicate images to ensure seamless looping */}
         {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
           <div key={`${sponsor.id}-${index}`} className="flex-shrink-0 h-12 w-32">
-            <img src={sponsor.logo} alt={sponsor.name} className="w-full h-auto" />
+            <Image
+              src={sponsor.logo} 
+              alt={sponsor.name}
+              className="logo object-contain w-full h-auto"
+              layout="responsive"
+              width={1} 
+              height={1}
+            />
           </div>
         ))}
       </div>

@@ -1,13 +1,22 @@
 import Link from "next/link";
 import NavLink from "./navLink";
+import Image from "next/image";
 
 export default function NavBar() {
     return (
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
         <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-          <a href="/#cover">
-            <img src="/logo-tengoku-game.webp" className="logo max-w-[5.8rem] h-auto cursor-pointer"></img>
-          </a>
+          <Link href="/">
+            <Image
+              src="/logo-tengoku-game.webp" 
+              className="logo object-contain max-w-[5.8rem] h-auto"
+              alt="logo Tengoku Game"
+              layout="responsive"
+              width={1} 
+              height={1}
+            />
+          </Link>
+          
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="/#cover">Inicio</NavLink>
             <NavLink href="/#juego">Juego</NavLink>

@@ -1,12 +1,23 @@
 import { Trophy, Users } from "lucide-react";
+import Image from "next/image";
 
 export default function CoverSection() {
   return (
     <section id="cover" className="trans-red-bg relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center z-5">
-        <div className="flex flex-col justify-center items-center gap-8 text-center pt-2">
+        <div className="flex flex-col justify-center items-center gap-8 text-center py-2">
           <div className="flex flex-col justify-center items-center space-y-4">
-            <img src="/logo-tengoku-game.webp" className="logo w-7/12 md:w-1/2"></img>
+            <div className="w-7/12 md:w-1/2">
+              <Image
+                src="/logo-tengoku-game.webp" 
+                className="logo object-contain"
+                alt="logo Tengoku Game"
+                layout="responsive"
+                width={1} 
+                height={1}
+              >
+              </Image>
+            </div>
             <p id="text-cover" className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
               ¿Estás listo para el desafío definitivo?
             </p>
