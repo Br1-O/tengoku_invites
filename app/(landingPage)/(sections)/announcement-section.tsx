@@ -32,7 +32,7 @@ const Announcements =
 ];
 
 export default function AnnouncementSection() {
-  const [announcements, setAnnouncements] = useState<Announcement[]>(Announcements);
+  const [announcements] = useState<Announcement[]>(Announcements);
 
   return (
     <section className="w-full py-1 bg-black">

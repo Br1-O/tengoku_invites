@@ -18,7 +18,7 @@ const Sponsors =
 ];
 
 export default function SponsorSection() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>(Sponsors);
+  const [sponsors] = useState<Sponsor[]>(Sponsors);
 
   return (
     <section className="py-8 bg-black border-y border-[#ff0080]/20 w-full">

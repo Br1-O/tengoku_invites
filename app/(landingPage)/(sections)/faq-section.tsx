@@ -37,7 +37,7 @@ const QuestionAnswer =
 ];
 
 export default function FaqSection() {
-  const [questionAnswer, setQuestionAnswer] = useState<QuestionAnswer[]>(QuestionAnswer);
+  const [questionAnswer] = useState<QuestionAnswer[]>(QuestionAnswer);
 
 return (
   <section id="faq" className="trans-red-bg py-20 text-white">
