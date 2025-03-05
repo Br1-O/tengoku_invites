@@ -5,8 +5,7 @@ import siteConfig from "@/config/site";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import LoadingOverlay from "./components/loadingOverlay/LoadingOverlay";
-
-
+import ConditionalLayout from "./conditionalLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tengokugame.vercel.app"),
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name + " - Convencion Tengoku Imperial"}`,
     template: `%s | ${siteConfig.name}`
   },
   description: siteConfig.description,
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://tengokugame.vercel.app",
     siteName: "Tengoku Games",
-    title: "Tengoku Games | Bienvenido",
+    title: "Tengoku Games | Convencion Tengoku Imperial",
     description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
     images: [
       {
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@TengokuGames",
-    title: "Tengoku Games | Bienvenido",
+    title: "Tengoku Games | Convencion Tengoku Imperial",
     description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
     images: ["https://tengokugame.vercel.app/images/poster_promo.webp"],
   }
@@ -80,10 +79,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[100vh] flex justify-center items-center`}
       >
-        <LoadingOverlay />
-        {children}
-        <Analytics />
-        <SpeedInsights />
+        <ConditionalLayout>
+          <main className="w-full">
+            <LoadingOverlay />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </ConditionalLayout>
       </body>
     </html>
   );

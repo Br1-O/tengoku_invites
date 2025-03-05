@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import NavBar from '../components/navbar/navbar';
 
 export const metadata: Metadata = {
   title: 'Sobre nosotros',
@@ -11,9 +12,12 @@ const RegisterLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <main className="h-full min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2 relative">
-            {children}
-        </main>
+        <>
+            <NavBar />
+            <main className="h-full min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2 relative">
+                {children}
+            </main>
+        </>
     );
 };
 

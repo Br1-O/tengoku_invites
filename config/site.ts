@@ -1,6 +1,6 @@
 const siteConfig = {
-    name: "Tengoku Anime",
-    description: "Online form for the Tengoku games"
+    name: "Tengoku Game",
+    description: "Website for the Tengoku games series, part of the Tengoku Imperial anime event."
 };
 
 export default siteConfig;
