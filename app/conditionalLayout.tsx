@@ -8,13 +8,14 @@ export default function ConditionalLayout({ children }: { children: React.ReactN
     const pathname = usePathname();
 
     const noNavbarFooterRoutes = ["/general", "/inv", "/registered", "/register-error"];
-    const isHidden = noNavbarFooterRoutes.includes(pathname) || noNavbarFooterRoutes.some(route => pathname.startsWith(route));
-
+    const noFooterRouters = ["/about-us"];
+    const isAllHidden = noNavbarFooterRoutes.includes(pathname) || noNavbarFooterRoutes.some(route => pathname.startsWith(route));
+    const isFooterHidden = noFooterRouters.includes(pathname) || noFooterRouters.some(route => pathname.startsWith(route));
   return (
     <>
-      {!isHidden && <NavBar />}
+      {!isAllHidden && <NavBar />}
       {children}
-      {!isHidden && <Footer />}
+      {(!isAllHidden && !isFooterHidden) && <Footer />}
     </>
   );
 }

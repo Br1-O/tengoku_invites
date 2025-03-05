@@ -13,10 +13,9 @@ const RegisterLayout = ({
 }) => {
     return (
         <>
-            <NavBar />
-            <main className="h-full min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2 relative">
+            <div className="h-full min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2 relative">
                 {children}
-            </main>
+            </div>
         </>
     );
 };

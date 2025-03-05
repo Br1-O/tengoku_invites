@@ -1,6 +1,6 @@
 "use client"
 import SponsorCarousel from "@/app/components/carrousels/sponsor-carrousel"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface Sponsor {
   id: number
@@ -8,18 +8,17 @@ interface Sponsor {
   logo: string
 }
 
+const Sponsors =
+[
+  { "id": 1, "name": "Cem English", "logo": "/images/sponsors/sponsor-1.png" },
+  { "id": 2, "name": "Cem English", "logo": "/images/sponsors/sponsor-1.png" },
+  { "id": 3, "name": "Cem English", "logo": "/images/sponsors/sponsor-1.png" },
+  { "id": 4, "name": "Cem English", "logo": "/images/sponsors/sponsor-1.png" },
+  { "id": 5, "name": "Cem English", "logo": "/images/sponsors/sponsor-1.png" }
+];
+
 export default function SponsorSection() {
-  const [sponsors, setSponsors] = useState<Sponsor[]>([])
-
-  useEffect(() => {
-    const fetchSponsors = async () => {
-      const res = await fetch("/data/sponsors.json")
-      const data = await res.json()
-      setSponsors(data)
-    }
-
-    fetchSponsors()
-  }, [])
+  const [sponsors, setSponsors] = useState<Sponsor[]>(Sponsors);
 
   return (
     <section className="py-8 bg-black border-y border-[#ff0080]/20 w-full">
