@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface AnnouncementItem {
   id: number
   image: string
   title: string
   description: string
+  href: string
 }
 
 interface AnnouncementCarouselProps {
@@ -51,24 +53,26 @@ export default function AnnouncementCarousel({ items }: AnnouncementCarouselProp
   }
 
   return (
-    <div className="relative w-full pt-5 h-[100vh] mx-auto flex flex-col justify-center items-center">
+    <div className="relative w-full pt-5 h-[50vh] mx-auto flex flex-col justify-center items-center">
         <h2 className="text-3xl md:text-4xl font-bold text-center my-5 text-white">
           Últimas <span className="text-[#ff0080]"> Novedades </span> 
         </h2>
       <div className="relative h-4/5 overflow-hidden w-full">
         {items.map((item, index) => (
-          <div
-            key={item.id}
-            className={`absolute inset-0 transition-opacity duration-500 w-full ${
-              index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <Image src={item.image} alt={item.title} fill className="object-cover object-left-top mx-auto" />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 backdrop-blur-sm text-center">
-              <h3 className="text-xl font-bold text-white">{item.title}</h3>
-              <p className="text-gray-200">{item.description}</p>
+            <div
+              key={item.id}
+              className={`absolute inset-0 transition-opacity duration-500 w-full mx-auto ${
+                index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <Link href={item.href}>
+                <Image src={item.image} alt={item.title} fill className="object-contain mx-auto" />
+                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 backdrop-blur-sm text-center">
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <p className="text-gray-200">{item.description}</p>
+                </div>
+              </Link>
             </div>
-          </div>
         ))}
       </div>
 

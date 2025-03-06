@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function CoverSection() {
   return (
-    <section id="cover" className="trans-red-bg relative min-h-screen flex items-center justify-center overflow-hidden py-14">
+    <section id="cover" className="trans-red-bg relative min-h-screen flex items-center justify-center overflow-hidden pt-14 pb-20">
       <div className=" flex items-center justify-center z-5">
         <div className="flex flex-col justify-center items-center gap-8 text-center py-2">
           <div className="flex flex-col justify-center items-center space-y-4">

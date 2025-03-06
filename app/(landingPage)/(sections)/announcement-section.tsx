@@ -7,28 +7,32 @@ interface Announcement {
   id: number,
   image: string,
   title: string,
-  description: string
+  description: string,
+  href: string
 }
 
 const Announcements =
 [
   {
     "id": 1,
-    "image": "/images/poster_promo.webp",
+    "image": "/images/poster_tengoku_game_2.webp",
     "title": "Inscripciones Abiertas",
-    "description": "Regístrate ahora para la próxima temporada de Tengoku Game"
+    "description": "Regístrate ahora para la próxima temporada de Tengoku Game.",
+    "href": "/"
   },
   {
     "id": 2,
     "image": "/images/poster_promo.webp",
-    "title": "Nuevos Desafíos",
-    "description": "Descubre los nuevos juegos que te esperan en esta temporada"
+    "title": "Fecha Confirmada",
+    "description": "Una nueva convención de Tengoku Imperial Anime fue confirmada. ¡Enterate de todo!",
+    "href": "/"
   },
   {
     "id": 3,
     "image": "/images/poster_promo.webp",
-    "title": "Premio Récord",
-    "description": "El pozo acumulado ha alcanzado una cifra histórica"
+    "title": "Premio confirmado",
+    "description": "¡El pozo acumulado para el premio es de $100000!",
+    "href": "/"
   }
 ];
 
@@ -36,7 +40,7 @@ export default function AnnouncementSection() {
   const [announcements] = useState<Announcement[]>(Announcements);
 
   return (
-    <section id="novedades" className="relative w-full pt-1 pb-14 xl:pb-20 bg-black">
+    <section id="novedades" className="relative w-full pt-14 pb-24 bg-black">
       <div className="container mx-auto">
         <AnnouncementCarousel items={announcements} />
       </div>
