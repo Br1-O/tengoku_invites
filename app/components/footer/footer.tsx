@@ -26,13 +26,13 @@ export default function Footer() {
               <h3 className="text-white font-bold mb-4">Enlaces</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#inicio" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="/" className="text-gray-400 hover:text-[#ff0080] transition-colors">
                     Inicio
                   </Link>
                 </li>
                 <li>
-                  <Link href="#juego" className="text-gray-400 hover:text-[#ff0080] transition-colors">
-                    Juegos
+                  <Link href="#novedades" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                    Novedades
                   </Link>
                 </li>
                 <li>
@@ -41,13 +41,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#nosotros" className="text-gray-400 hover:text-[#ff0080] transition-colors">
-                    Sobre Nosotros
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#contacto" className="text-gray-400 hover:text-[#ff0080] transition-colors">
-                    Contacto
+                  <Link href="/about-us" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                    Sobre nosotros
                   </Link>
                 </li>
               </ul>
@@ -57,7 +52,11 @@ export default function Footer() {
               <h3 className="text-white font-bold mb-4">Legal</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="/terms" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-[#ff0080] transition-colors"
+                  >
                     Términos y Condiciones
                   </Link>
                 </li>

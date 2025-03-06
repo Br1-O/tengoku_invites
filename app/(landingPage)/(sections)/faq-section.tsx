@@ -1,5 +1,6 @@
 "use client"
 import { CustomAccordion, CustomAccordionItem } from "@/app/components/accordion/accordion"
+import DownArrow from "@/app/components/arrow/downArrow";
 import { useState } from "react"
 
 interface QuestionAnswer{
@@ -40,7 +41,7 @@ export default function FaqSection() {
   const [questionAnswer] = useState<QuestionAnswer[]>(QuestionAnswer);
 
 return (
-  <section id="faq" className="trans-red-bg py-20 text-white">
+  <section id="faq" className="relative trans-red-bg py-20 text-white">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
         Preguntas <span className="text-[#ff0080]">Frecuentes</span>
@@ -61,6 +62,7 @@ return (
         </CustomAccordion>
       </div>
     </div>
+    <DownArrow href='#contacto' />
   </section>
 )
 }

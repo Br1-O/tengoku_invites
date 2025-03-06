@@ -1,4 +1,5 @@
 "use client"
+import DownArrow from "@/app/components/arrow/downArrow";
 import AnnouncementCarousel from "@/app/components/carrousels/annoucement-carrousel"
 import { useState } from "react"
 
@@ -35,10 +36,11 @@ export default function AnnouncementSection() {
   const [announcements] = useState<Announcement[]>(Announcements);
 
   return (
-    <section className="w-full py-1 bg-black">
+    <section id="novedades" className="relative w-full pt-1 pb-14 xl:pb-20 bg-black">
       <div className="container mx-auto">
         <AnnouncementCarousel items={announcements} />
       </div>
+      <DownArrow href='#faq' />
     </section>
   )
 }

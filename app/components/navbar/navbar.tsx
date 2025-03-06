@@ -19,7 +19,7 @@ export default function NavBar() {
           
           <nav className="hidden md:flex items-center space-x-8">
             <NavLink href="/#cover">Inicio</NavLink>
-            <NavLink href="/#juego">Juego</NavLink>
+            <NavLink href="/#novedades">Novedades</NavLink>
             <NavLink href="/#faq">FAQ</NavLink>
             <NavLink href="/about-us">Sobre Nosotros</NavLink>
             <NavLink href="/#contacto">Contacto</NavLink>
