@@ -24,6 +24,7 @@ export default function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
               layout="responsive"
               width={1} 
               height={1}
+              draggable="false"
             />
           </div>
         ))}

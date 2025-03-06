@@ -25,6 +25,7 @@ html, body {
   padding: 0;  
   scroll-behavior: smooth;
   width: 100%;
+  user-select: none;
 }
 
 body {

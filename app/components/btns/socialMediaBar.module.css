@@ -21,6 +21,10 @@
     border-radius: 50%;
     transition-duration: .3s;
   }
+
+  .socialIcon{
+    color: white !important;
+  }
   
   /*instagram*/
   .containerOne:hover {

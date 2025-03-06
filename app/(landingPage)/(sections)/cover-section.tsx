@@ -16,6 +16,7 @@ export default function CoverSection() {
                 layout="responsive"
                 width={1} 
                 height={1}
+                draggable="false"
               >
               </Image>
             </div>
