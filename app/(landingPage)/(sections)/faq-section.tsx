@@ -41,7 +41,12 @@ export default function FaqSection() {
   const [questionAnswer] = useState<QuestionAnswer[]>(QuestionAnswer);
 
 return (
-  <section id="faq" className="relative trans-red-bg py-20 text-white">
+  <section id="faq" className="relative py-20 text-white">
+    {/* Bg and Overlay */}
+    <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-beds overlay-shadow"></div>
+    {/* red-line */}
+    <div className="absolute top-0 left-0 w-full h-full fading-border z-[-1] trans-red-line-simple-bg"></div>
+
     <div className="container mx-auto px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
         Preguntas <span className="text-[#ff0080]">Frecuentes</span>
@@ -54,7 +59,7 @@ return (
               key={index}
               question={faq.question}
               answer={faq.answer}
-              className="border border-[#ff0080]/20 rounded-lg overflow-hidden bg-[var(--red-light)]"
+              className={`border ${index % 2 === 0 ? 'border-[#00ffff]/30' : 'border-[#ff0080]/30'} ${index % 2 === 0 ? 'hover:bg-[#00ffff]/30' : 'hover:bg-[#ff0080]/30'} rounded-lg overflow-hidden bg-black/60`}
               triggerClassName="px-6 py-4 text-slate-300 hover:text-[#FFF] hover:no-underline"
               contentClassName="px-6 pb-4 text-gray-300"
             />

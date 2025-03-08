@@ -28,7 +28,12 @@ export default function GamesSection() {
     ]
   
     return (
-      <section id="juego" className="py-20 bg-black">
+      <section id="juego" className="relative py-20 text-white">
+        {/* Bg and Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-voting-room overlay-shadow"></div>
+        {/* red-line */}
+        <div className="absolute top-0 left-0 w-full h-full fading-border z-[-1] trans-red-line-simple-bg"></div>
+
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
             Los <span className="text-[#ff0080]">Juegos</span>

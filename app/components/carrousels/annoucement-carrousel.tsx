@@ -58,24 +58,38 @@ export default function AnnouncementCarousel({ items }: AnnouncementCarouselProp
         Últimas <span className="text-[#ff0080]"> Novedades </span> 
       </h2>
       <div className="relative h-4/5 overflow-hidden w-full flex justify-center items-center">
-        {items.map((item, index) => (
-          <div
-            key={item.id}
-            className={`absolute inset-0 transition-opacity duration-500 w-3/4 mx-auto flex flex-col items-center bg-black/70 ${
-              index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-          >
-            <Link href={item.href} className="relative w-full h-full flex justify-center">
-              <Image src={item.image} alt={item.title} fill className="object-contain mx-auto" draggable="false" />
-            </Link>
-            <Link href={item.href}>
+        {items.map((item, index) => {
+          const Content = (
+            <div
+              key={item.id}
+              className={`absolute inset-0 transition-opacity duration-500 w-3/4 mx-auto flex flex-col items-center bg-black/70 ${
+                index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            >
+              <div className="relative w-full h-full flex justify-center">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-contain mx-auto"
+                  draggable="false"
+                />
+              </div>
               <div className="w-full p-4 text-center">
                 <h3 className="text-xl font-bold text-white">{item.title}</h3>
                 <p className="text-gray-200">{item.description}</p>
               </div>
+            </div>
+          )
+
+          return item.href ? (
+            <Link key={item.id} href={item.href} target="_blank" rel="noopener noreferrer">
+              {Content}
             </Link>
-          </div>
-        ))}
+          ) : (
+            Content
+          )
+        })}
       </div>
 
       <div className="flex justify-center mt-4 space-x-2">

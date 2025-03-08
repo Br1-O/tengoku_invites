@@ -7,7 +7,7 @@ import CoverSection from "./(sections)/cover-section";
 import AnnouncementSection from "./(sections)/announcement-section";
 import SponsorSection from "./(sections)/sponsor-section";
 import FaqSection from "./(sections)/faq-section";
-//import GamesSection from "./(sections)/games-section";
+// import GamesSection from "./(sections)/games-section";
 
 export default function LandingPage() {
   return (
@@ -15,8 +15,8 @@ export default function LandingPage() {
       <ClientScript />
       <CoverSection />
       <AnnouncementSection />
-      <FaqSection />
       <SponsorSection />
+      <FaqSection />
     </>
   )
 }

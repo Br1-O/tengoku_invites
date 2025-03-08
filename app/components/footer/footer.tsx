@@ -4,7 +4,8 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-      <footer className="w-full bg-black pt-8 pb-2 border-t border-[#ff0080]/20">
+      <footer id="contacto" className="w-full bg-black pt-8 pb-2 border-t border-[#ff0080]/20">
+
         <div className="mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col justify-center items-center">
@@ -18,7 +19,7 @@ export default function Footer() {
                   height={1}
                 />
               </Link>
-              <p className="text-gray-400 mb-4 text-center">El juego definitivo de supervivencia.</p>
+              <p className="text-gray-400 mb-4 text-center">¿Estás listo para el desafio?</p>
                 <SocialMediaBar />
             </div>
   
@@ -68,16 +69,6 @@ export default function Footer() {
                 <li>
                   <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
                     Renuncia de Responsabilidad
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
-                    Acuerdo de Participante
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
-                    Contacto Legal
                   </Link>
                 </li>
               </ul>

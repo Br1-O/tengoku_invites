@@ -21,8 +21,9 @@ export default function SponsorSection() {
   const [sponsors] = useState<Sponsor[]>(Sponsors);
 
   return (
-    <section id="contacto" className="py-8 bg-black border-y border-[#ff0080]/20 w-full">
-      <div className="container mx-auto px-4">
+    <section id="sponsors" className="relative py-8 bg-black w-full fading-border">
+
+      <div className="mx-auto px-4 z-10">
         <h2 className="text-2xl font-bold text-center mb-6 text-white">
           Nuestros <span className="text-[#ff0080]">Patrocinadores</span>
         </h2>

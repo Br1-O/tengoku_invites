@@ -8,7 +8,7 @@ export const revalidate = false;
 
 const RejectPage = () => {
     return (
-        <div className="min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2">
+        <div className="min-h-[100vh] w-full flex items-center justify-center flex-col py-5 px-2 overlay-shadow">
             <div className='flex items-center justify-center flex-col bg-black bg-opacity-80 py-10 lg:py-20 px-5 rounded-lg border-2 border-slate-700'>
             <div className='flex items-center justify-center flex-col'>
                 <h1 className='text-3xl md:text-6xl text-center text-neutral-200 mb-6'>

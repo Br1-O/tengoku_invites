@@ -17,7 +17,7 @@ const RegisterLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <div className="w-full lg:w-4/5 flex items-center justify-center flex-col py-5 px-2 mx-auto">
+        <div className="w-full lg:w-4/5 flex items-center justify-center flex-col py-5 px-2 mx-auto overlay-shadow">
             {children}
         </div>
     );

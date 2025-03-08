@@ -11,7 +11,7 @@ export const revalidate = false;
 
 export default function Terms() {
   return (
-    <div className="flex items-center justify-center p-8 min-h-[100vh]">
+    <div className="flex items-center justify-center p-8 min-h-[100vh] overlay-shadow">
       <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Términos y Condiciones</h1>
         

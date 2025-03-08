@@ -105,6 +105,8 @@ function SocialButton({
     <Link
       href={href}
       className="flex items-center justify-between w-full max-w-md bg-gradient-to-r from-[rgb(200,0,0)] to-[#380000] hover:brightness-110 text-white px-6 py-3 rounded-full transition-colors gap-2"
+      target="_blank" 
+      rel="noopener noreferrer" 
     >
       <span className="font-bold md:text-xl scale-y-125">{text}</span>
       <span className="text-white">{icon}</span>
