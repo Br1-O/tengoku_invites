@@ -54,20 +54,28 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link href="/terms" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-[#ff0080] transition-colors"
+                    target="_blank" 
+                    rel="noopener noreferrer"
                   >
                     Términos y Condiciones
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="/privacy-policy" 
+                  className="text-gray-400 hover:text-[#ff0080] transition-colors"
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  >
                     Política de Privacidad
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="/disclaimer" 
+                  className="text-gray-400 hover:text-[#ff0080] transition-colors"
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  >
                     Renuncia de Responsabilidad
                   </Link>
                 </li>

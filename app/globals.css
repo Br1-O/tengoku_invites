@@ -120,8 +120,8 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #d946ef;   
-  background: linear-gradient(180deg, #d216ef, #e91a82);
+  background-color: #37ffff;   
+  background: linear-gradient(180deg, #37ffff,#ff3298 );
 }
 
 /* ■■■■­■■­■■­■■­■■ Home page ■■■■­■■­■■­■■­■■ */

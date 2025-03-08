@@ -27,9 +27,10 @@ export default function Terms() {
           </li>
           
           <li>
-            <h2 className="font-semibold text-xl text-gray-500">2. Pruebas Físicas y Riesgos</h2>
+            <h2 className="font-semibold text-xl text-gray-500">2. Pruebas Físicas, Riesgos y Salud</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-200">
-              <li>Las pruebas serán de carácter físico y podrían implicar riesgos para la salud del participante.</li>
+              <li>Las pruebas podrían ser de carácter físico (saltar, correr, fuerza, movimientos bruscos) y de esta forma implicar algún riesgo para la salud del participante.</li>
+              <li>Es responsabilidad del participante asegurarse de estar en condiciones físicas adecuadas para participar.</li>
               <li>Al inscribirse, el participante asume toda responsabilidad por posibles perjuicios, lesiones o daños derivados de su participación en las pruebas.</li>
               <li>El organizador se deslinda de cualquier responsabilidad en caso de lesiones o accidentes durante el evento.</li>
             </ul>
@@ -38,17 +39,18 @@ export default function Terms() {
           <li>
             <h2 className="font-semibold text-xl text-gray-500">3. Premio</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-200">
-              <li>El premio total es de 100,000 pesos, el cual será entregado al ganador al final del evento.</li>
+              <li>El premio total es de 100.000 pesos, el cual será entregado al ganador al final del evento.</li>
               <li>El premio no es transferible ni canjeable.</li>
               <li>El premio se otorgará SOLAMENTE al ganador del evento. Cualquier trato por fuera del evento no será reconocido por la organización.</li>
             </ul>
           </li>
 
           <li>
-            <h2 className="font-semibold text-xl text-gray-500">4. Decisiones Aleatorias y Derecho de Admisión</h2>
+            <h2 className="font-semibold text-xl text-gray-500">4. Decisiones Aleatorias, Cambios en el Evento y Derecho de Admisión</h2>
             <ul className="list-disc list-inside space-y-2 text-gray-200">
               <li>Las decisiones de los organizadores, que incluyen posibles elecciones aleatorias, no serán debatibles ni argumentables.</li>
               <li>Nos reservamos el derecho de admisión y participación, pudiendo excluir a aquellos participantes que no cumplan con las normas establecidas.</li>
+              <li>El evento está sujeto a cambios sin previo aviso, incluyendo modificaciones en el cronograma, reglas y formato.</li>
             </ul>
           </li>
 
@@ -63,7 +65,8 @@ export default function Terms() {
 
         <div className="mt-6 text-center">
           <p className="text-lg text-red-500">
-            Al participar en este evento, confirmas que has leído, entendido y aceptas estos términos y condiciones.
+            Al participar en este evento, confirmas que has leído, entendido y aceptas estos términos y condiciones. 
+            También reconoces que el evento puede estar sujeto a cambios y que participas bajo tu propia responsabilidad en cuanto a salud y aptitud física.
           </p>
         </div>
       </div>

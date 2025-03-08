@@ -7,6 +7,7 @@ import CoverSection from "./(sections)/cover-section";
 import AnnouncementSection from "./(sections)/announcement-section";
 import SponsorSection from "./(sections)/sponsor-section";
 import FaqSection from "./(sections)/faq-section";
+import InstructionsSection from "./(sections)/instructions-section";
 // import GamesSection from "./(sections)/games-section";
 
 export default function LandingPage() {
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <ClientScript />
       <CoverSection />
       <AnnouncementSection />
+      <InstructionsSection />
       <SponsorSection />
       <FaqSection />
     </>
