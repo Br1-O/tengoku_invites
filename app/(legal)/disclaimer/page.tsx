@@ -15,7 +15,7 @@ export default function Disclaimer() {
       <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Renuncia de Responsabilidad</h1>
         
-        <p className="text-lg mb-4">Al registrarte para participar en el evento "Tengoku Game", aceptas los siguientes términos de exoneración de responsabilidad:</p>
+        <p className="text-lg mb-4">Al registrarte para participar en el evento &quot;Tengoku Game&quot;, aceptas los siguientes términos de exoneración de responsabilidad:</p>
         
         <ol className="list-inside space-y-4 text-lg">
           <li>

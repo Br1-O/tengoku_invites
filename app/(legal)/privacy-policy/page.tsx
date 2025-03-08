@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
       <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Política de Privacidad</h1>
         
-        <p className="text-lg mb-4">Al participar en el evento "Tengoku Game", aceptas los siguientes términos relacionados con el uso y protección de tus datos personales:</p>
+        <p className="text-lg mb-4">Al participar en el evento &quot;Tengoku Game&quot;, aceptas los siguientes términos relacionados con el uso y protección de tus datos personales:</p>
         
         <ol className="list-inside space-y-4 text-lg">
           <li>
