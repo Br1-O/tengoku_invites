@@ -275,3 +275,33 @@ input[type="number"]::-webkit-outer-spin-button {
 .animate-accordion-up {
   animation: accordion-up 0.2s ease-out;
 }
+
+@keyframes diagonalFloatRight {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+@keyframes diagonalFloatLeft {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 10px);
+  }
+}
+
+.move-diagonal-right {
+  animation: diagonalFloatRight 5s ease-in-out infinite;
+}
+
+.move-diagonal-left {
+  animation: diagonalFloatLeft 5s ease-in-out infinite;
+}
+
+.move-diagonal:hover {
+  animation: none;
+}
