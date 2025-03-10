@@ -88,8 +88,18 @@ export default function Footer() {
             </div>
           </div>
   
-          <div className="mt-5 pt-5 border-t border-gray-800 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} Tengoku Game. Todos los derechos reservados.</p>
+          <div className="group mt-5 pt-5 border-t border-gray-800 text-center text-gray-500">
+            <p className="text-wrap">&copy; {new Date().getFullYear()} Tengoku Game. Todos los derechos reservados. | 
+              <span className="whitespace-nowrap group-hover:text-gray-400"> Diseño y desarrollo web por: {" "}
+                <Link href="https://bruno-ortuno.vercel.app" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-500 hover:underline group-hover:text-blue-400">
+                  br1
+                </Link>
+                {" "} |
+              </span>
+            </p>
           </div>
         </div>
       </footer>
