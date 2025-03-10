@@ -6,8 +6,7 @@ import Link from "next/link"
 
 interface AnnouncementItem {
   id: number
-  imageWide: string
-  imageTall: string
+  image: string
   title: string
   description: string
   href: string
@@ -20,23 +19,8 @@ interface AnnouncementCarouselProps {
 export default function AnnouncementCarousel({ items }: AnnouncementCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
-  const [isWide, setIsWide] = useState(true)
-  const containerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
   const pauseTimerRef = useRef<NodeJS.Timeout | null>(null)
-
-  const checkAspectRatio = () => {
-    if (containerRef.current) {
-      const { offsetWidth, offsetHeight } = containerRef.current
-      setIsWide(offsetWidth > offsetHeight)
-    }
-  }
-  
-  useEffect(() => {
-    checkAspectRatio()
-    window.addEventListener("resize", checkAspectRatio)
-    return () => window.removeEventListener("resize", checkAspectRatio)
-  }, [])
 
   const startAutoSlide = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
@@ -69,15 +53,12 @@ export default function AnnouncementCarousel({ items }: AnnouncementCarouselProp
   }
 
   return (
-    <div ref={containerRef} className="relative w-full pt-5 h-[50vh] mx-auto flex flex-col justify-center items-center">
+    <div className="relative w-full pt-5 h-[50vh] mx-auto flex flex-col justify-center items-center">
       <h2 className="text-3xl md:text-4xl font-bold text-center my-5 text-white">
         Últimas <span className="text-[#ff0080]"> Novedades </span> 
       </h2>
       <div className="relative h-4/5 overflow-hidden w-full flex justify-center items-center">
         {items.map((item, index) => {
-
-          const selectedImage = isWide ? item.imageWide : item.imageTall;
-
           const Content = (
             <div
               key={item.id}
@@ -87,7 +68,7 @@ export default function AnnouncementCarousel({ items }: AnnouncementCarouselProp
             >
               <div className="relative w-full h-full flex justify-center">
                 <Image
-                  src={selectedImage}
+                  src={item.image}
                   alt={item.title}
                   fill
                   className="object-contain mx-auto"
