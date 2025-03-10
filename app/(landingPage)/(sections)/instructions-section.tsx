@@ -16,9 +16,9 @@ export default function InstructionsSection() {
             ¿Cómo <span className="text-[#ff0080]">participar?</span> (...y ganar)
           </h2>
           
-            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-6 xl:grid-cols-3 xl:grid-rows-4 gap-y-4 gap-x-5 w-11/12 md:w-3/4 min-h-[50vh]">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-6 xl:grid-cols-3 xl:grid-rows-4 gap-4 w-11/12 md:w-3/4 min-h-[50vh]">
 
-                <div className="md:col-start-1 md:row-start-1 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:col-start-1 md:row-start-1 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                     icon={IdCardIcon} 
                     title="Edad" 
@@ -30,7 +30,7 @@ export default function InstructionsSection() {
                     />
                 </div>
 
-                <div className="md:col-start-1 md:row-start-2 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:col-start-1 md:row-start-2 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                     icon={TicketIcon} 
                     title="Entrada" 
@@ -42,7 +42,7 @@ export default function InstructionsSection() {
                     />
                 </div>
 
-                <div className="md:row-span-2 md:col-start-2 md:row-start-1 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:row-span-2 md:col-start-2 md:row-start-1 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                   icon={TicketCheckIcon} 
                   title="Código" 
@@ -54,7 +54,7 @@ export default function InstructionsSection() {
                   />
                 </div>
                 
-                <div className="md:row-span-2 md:row-start-3 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:row-span-2 md:row-start-3 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                   icon={FilePenLineIcon} 
                   title="Inscripción" 
@@ -66,7 +66,7 @@ export default function InstructionsSection() {
                   />
                 </div>
 
-                <div className="md:row-span-2 md:row-start-3 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:row-span-2 md:row-start-3 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                   icon={CalendarClockIcon} 
                   title="Asistencia" 
@@ -78,7 +78,7 @@ export default function InstructionsSection() {
                   />
                 </div>
 
-                <div className="md:col-span-2 md:row-span-2 md:row-start-5 xl:row-span-4 xl:col-start-3 xl:row-start-1 relative flex flex-col justify-center items-center p-1 rounded-xl">
+                <div className="md:col-span-2 md:row-span-2 md:row-start-5 xl:row-span-4 xl:col-start-3 xl:row-start-1 relative flex flex-col justify-center items-center p-2 rounded-xl">
                   <IconTitleDescriptionCard 
                   icon={MedalIcon} 
                   title="Ganar" 

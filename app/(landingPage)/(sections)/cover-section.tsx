@@ -6,7 +6,7 @@ export default function CoverSection() {
   return (
     <section id="home" className="trans-red-line-simple-bg relative min-h-screen flex items-center justify-center overflow-hidden pt-14 pb-20">
       {/* Video Background */}
-      <div className="fixed top-0 left-0 w-full h-full z-[-1]">
+      <div className="absolute top-0 left-0 w-full h-full z-[-1] md:fixed md:top-0 md:left-0 md:w-full md:h-full">
         <video
           className="w-full h-full object-cover"
           autoPlay
