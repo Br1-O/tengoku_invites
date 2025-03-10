@@ -15,7 +15,7 @@ export default function Terms() {
       <div className="bg-gray-900 p-5 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Términos y Condiciones</h1>
         
-        <p className="text-lg mb-4">Al participar en el evento, aceptas los siguientes términos y condiciones:</p>
+        <p className="text-lg mb-4 text-white">Al participar en el evento, aceptas los siguientes términos y condiciones:</p>
         
         <ol className="list-inside space-y-4 text-lg">
           <li>
