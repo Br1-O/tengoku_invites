@@ -15,7 +15,7 @@ const Announcements =
 [
   {
     "id": 1,
-    "image": "/images/poster_tengoku_game_2.webp",
+    "image": "/images/announcements/poster_tengoku_game_2.webp",
     "title": "Inscripciones Abiertas",
     "description": "Regístrate ahora para la próxima temporada de Tengoku Game.",
     "href": "https://www.instagram.com/p/DG6q43aPJSm/?img_index=1"
