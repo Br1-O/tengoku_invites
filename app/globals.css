@@ -26,6 +26,8 @@ html, body {
   scroll-behavior: smooth;
   width: 100%;
   user-select: none;
+  touch-action: manipulation; /* Prevents double-tap zooming */
+  overscroll-behavior: none; /* Prevents scroll overshooting */
 }
 
 body{

@@ -10,12 +10,13 @@ export default function NavBar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 group" id="navbar">
       <div className="container mx-auto px-4 py-5 flex items-center justify-between">
-        <Link href="/">
+        <Link href="#home">
           <Image
             src="/logo-tengoku-game.webp"
-            className="logo object-contain max-w-[5.8rem] h-auto"
+            id="navbar-logo"
+            className="logo object-contain max-w-[5.8rem] h-auto opacity-0 group-[.scrolled]:opacity-100"
             alt="logo Tengoku Game"
             layout="responsive"
             width={1}
@@ -25,11 +26,12 @@ export default function NavBar() {
 
         {/* Desktop menu */}
         <nav className="hidden md:flex items-center space-x-8">
-          <NavLink href="/#cover">Inicio</NavLink>
-          <NavLink href="/#novedades">Novedades</NavLink>
-          <NavLink href="/#faq">FAQ</NavLink>
-          <NavLink href="/about-us">Sobre Nosotros</NavLink>
-          <NavLink href="/#contacto">Contacto</NavLink>
+          <NavLink href="#home">Inicio</NavLink>
+          <NavLink href="#novedades">Novedades</NavLink>
+          <NavLink href="#participar">¿Cómo participo?</NavLink>
+          <NavLink href="#faq">FAQ</NavLink>
+          <NavLink href="#contacto">Contacto</NavLink>
+          <NavLink href="/about-us" target="_blank">Sobre Nosotros</NavLink>
         </nav>
 
         {/* Hamburger button */}
@@ -59,11 +61,12 @@ export default function NavBar() {
         className={`md:hidden ${isOpen ? "block" : "hidden"} bg-black/80 absolute w-max top-15 right-0 z-40 py-5 px-10`}
       >
         <nav className="flex flex-col justify-around items-right space-y-6">
-          <NavLink href="/#cover" onClick={toggleMenu}>Inicio</NavLink>
-          <NavLink href="/#novedades" onClick={toggleMenu}>Novedades</NavLink>
-          <NavLink href="/#faq" onClick={toggleMenu}>FAQ</NavLink>
-          <NavLink href="/about-us" onClick={toggleMenu}>Sobre Nosotros</NavLink>
-          <NavLink href="/#contacto" onClick={toggleMenu}>Contacto</NavLink>
+          <NavLink href="#home" onClick={toggleMenu}>Inicio</NavLink>
+          <NavLink href="#novedades" onClick={toggleMenu}>Novedades</NavLink>
+          <NavLink href="#participar" onClick={toggleMenu}>¿Cómo partipo?</NavLink>
+          <NavLink href="#faq" onClick={toggleMenu}>FAQ</NavLink>
+          <NavLink href="#contacto" onClick={toggleMenu}>Contacto</NavLink>
+          <NavLink href="/about-us" onClick={toggleMenu} target="_blank">Sobre Nosotros</NavLink>
         </nav>
       </div>
     </header>

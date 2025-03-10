@@ -6,7 +6,8 @@ import Link from "next/link"
 
 interface AnnouncementItem {
   id: number
-  image: string
+  imageWide: string
+  imageTall: string
   title: string
   description: string
   href: string
@@ -19,8 +20,23 @@ interface AnnouncementCarouselProps {
 export default function AnnouncementCarousel({ items }: AnnouncementCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isWide, setIsWide] = useState(true)
+  const containerRef = useRef<HTMLDivElement>(null)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
   const pauseTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const checkAspectRatio = () => {
+    if (containerRef.current) {
+      const { offsetWidth, offsetHeight } = containerRef.current
+      setIsWide(offsetWidth > offsetHeight)
+    }
+  }
+  
+  useEffect(() => {
+    checkAspectRatio()
+    window.addEventListener("resize", checkAspectRatio)
+    return () => window.removeEventListener("resize", checkAspectRatio)
+  }, [])
 
   const startAutoSlide = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current)
@@ -53,22 +69,25 @@ export default function AnnouncementCarousel({ items }: AnnouncementCarouselProp
   }
 
   return (
-    <div className="relative w-full pt-5 h-[50vh] mx-auto flex flex-col justify-center items-center">
+    <div ref={containerRef} className="relative w-full pt-5 h-[50vh] mx-auto flex flex-col justify-center items-center">
       <h2 className="text-3xl md:text-4xl font-bold text-center my-5 text-white">
         Últimas <span className="text-[#ff0080]"> Novedades </span> 
       </h2>
       <div className="relative h-4/5 overflow-hidden w-full flex justify-center items-center">
         {items.map((item, index) => {
+
+          const selectedImage = isWide ? item.imageWide : item.imageTall;
+
           const Content = (
             <div
               key={item.id}
-              className={`absolute inset-0 transition-opacity duration-500 w-3/4 mx-auto flex flex-col items-center bg-black/70 ${
+              className={`absolute inset-0 transition-opacity duration-500 w-full md:w-3/4 h-full mx-auto flex flex-col items-center bg-black/70 ${
                 index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
               <div className="relative w-full h-full flex justify-center">
                 <Image
-                  src={item.image}
+                  src={selectedImage}
                   alt={item.title}
                   fill
                   className="object-contain mx-auto"

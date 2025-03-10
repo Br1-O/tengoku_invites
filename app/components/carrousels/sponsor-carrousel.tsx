@@ -1,9 +1,11 @@
 import Image from "next/image"
+import Link from "next/link"
 
 interface Sponsor {
   id: number
   name: string
   logo: string
+  href: string
 }
 
 interface SponsorCarouselProps {
@@ -17,15 +19,17 @@ export default function SponsorCarousel({ sponsors }: SponsorCarouselProps) {
         {/* Duplicate images to ensure seamless looping */}
         {[...sponsors, ...sponsors, ...sponsors, ...sponsors].map((sponsor, index) => (
           <div key={`${sponsor.id}-${index}`} className="flex-shrink-0 h-12 w-32">
-            <Image
-              src={sponsor.logo} 
-              alt={sponsor.name}
-              className="logo object-contain w-full h-auto"
-              layout="responsive"
-              width={1} 
-              height={1}
-              draggable="false"
-            />
+            <Link href={sponsor.href} target="_blank" rel="noopener noreferrer">
+              <Image
+                src={sponsor.logo} 
+                alt={sponsor.name}
+                className="logo object-contain w-full h-auto"
+                layout="responsive"
+                width={1} 
+                height={1}
+                draggable="false"
+              />
+            </Link>
           </div>
         ))}
       </div>

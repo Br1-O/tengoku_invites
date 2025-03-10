@@ -27,7 +27,7 @@ export default function Footer() {
               <h3 className="text-white font-bold mb-4">Enlaces</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="#home" className="text-gray-400 hover:text-[#ff0080] transition-colors">
                     Inicio
                   </Link>
                 </li>
@@ -37,12 +37,17 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="#participar" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                    ¿Cómo participo?
+                  </Link>
+                </li>
+                <li>
                   <Link href="#faq" className="text-gray-400 hover:text-[#ff0080] transition-colors">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" className="text-gray-400 hover:text-[#ff0080] transition-colors">
+                  <Link href="/about-us" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#ff0080] transition-colors">
                     Sobre nosotros
                   </Link>
                 </li>

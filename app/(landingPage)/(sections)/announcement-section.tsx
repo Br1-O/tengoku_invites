@@ -4,10 +4,11 @@ import AnnouncementCarousel from "@/app/components/carrousels/annoucement-carrou
 import { useState } from "react"
 
 interface Announcement {
-  id: number,
-  image: string,
-  title: string,
-  description: string,
+  id: number
+  imageWide: string
+  imageTall: string
+  title: string
+  description: string
   href: string
 }
 
@@ -15,21 +16,24 @@ const Announcements =
 [
   {
     "id": 1,
-    "image": "/images/poster_tengoku_game_2.webp",
+    "imageWide": "/images/announcements/poster_tengoku_game_2.webp",
+    "imageTall": "/images/announcements/poster-tengoku-game.webp",
     "title": "Inscripciones Abiertas",
     "description": "Regístrate ahora para la próxima temporada de Tengoku Game.",
     "href": "https://www.instagram.com/p/DG6q43aPJSm/?img_index=1"
   },
   {
     "id": 2,
-    "image": "/images/poster_promo.webp",
+    "imageWide": "/images/announcements/poster_dandadan_announcement.webp",
+    "imageTall": "/images/announcements/poster_dandadan.webp",
     "title": "Fecha Confirmada",
     "description": "Una nueva convención de Tengoku Imperial Anime fue confirmada. ¡Enterate de todo!",
     "href": "https://www.instagram.com/p/DFsv-Jfvv5k/?img_index=1"
   },
   {
     "id": 3,
-    "image": "/images/poster_promo.webp",
+    "imageWide": "/images/announcements/poster_dandadan_announcement.webp",
+    "imageTall": "/images/announcements/poster_dandadan.webp",
     "title": "Premio confirmado",
     "description": "¡El pozo acumulado para el premio es de $100000!",
     "href": ""
@@ -45,7 +49,7 @@ export default function AnnouncementSection() {
       <div className="container mx-auto">
         <AnnouncementCarousel items={announcements} />
       </div>
-      <DownArrow href='#faq' />
+      <DownArrow href='#participar' />
     </section>
   )
 }
