@@ -44,7 +44,7 @@ const IconTitleDescriptionCard: React.FC<IconTitleDescriptionCardProps> = ({
       {Icon && <Icon className="h-10 w-10 text-[#ff0080]" />}
       <div className="text-center">
         <h3 className={`text-2xl font-bold mb-2 text-[#00ffff]`}>{title}</h3>
-        <p className="text-gray-400 group-hover:text-gray-300">{description}</p>
+        <p className="text-gray-400 lg:group-hover:text-gray-300">{description}</p>
       </div>
       {cornerContent && corner && (
         <div className={`absolute ${cornerPositions[corner]} text-2xl font-bold ${textColor} ${hoverColor} border ${borderColor} rounded-full bg-black/90 py-1 px-3.5`}>
