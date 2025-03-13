@@ -39,7 +39,7 @@ const IconTitleDescriptionCard: React.FC<IconTitleDescriptionCardProps> = ({
 
   return (
     <div
-      className={`group whitespace-pre-line min-h-52 md:min-h-full min-w-full relative flex flex-col justify-center items-center bg-black/70 hover:bg-black/85 backdrop-blur-sm px-5 py-3 sm:py-1 md:py-4 rounded-xl hover:scale-105 transition-transform duration-300 border ${borderColor} ${shadow ? shadowColor : ""} ${className || ""}`}
+      className={`group whitespace-pre-line min-h-52 md:min-h-full min-w-full relative flex flex-col justify-center items-center bg-black/70 hover:bg-black/85 backdrop-blur-sm px-5 py-3 sm:py-1 md:py-4 rounded-xl lg:hover:scale-105 lg:transition-transform lg:duration-300 border ${borderColor} ${shadow ? shadowColor : ""} ${className || ""}`}
     >
       {Icon && <Icon className="h-10 w-10 text-[#ff0080]" />}
       <div className="text-center">
