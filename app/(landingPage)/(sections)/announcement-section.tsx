@@ -45,7 +45,7 @@ export default function AnnouncementSection() {
       <div className="container mx-auto">
         <AnnouncementCarousel items={announcements} />
       </div>
-      <DownArrow href='#faq' />
+      <DownArrow href='#participar' />
     </section>
   )
 }

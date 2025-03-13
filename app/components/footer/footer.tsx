@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col justify-center items-center">
-              <Link href="/#cover">
+              <Link href="/#home">
                 <Image
                   src="/logo-tengoku-game.webp"
                   alt= "logo Tengoku Games"

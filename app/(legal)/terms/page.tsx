@@ -11,7 +11,9 @@ export const revalidate = false;
 
 export default function Terms() {
   return (
-    <div className="flex items-center justify-center p-8 min-h-[100vh] overlay-shadow">
+    <div className="flex items-center justify-center p-8 min-h-[100vh]">
+      {/* Bg and Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-anime overlay-shadow"></div>
       <div className="bg-gray-900 p-5 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Términos y Condiciones</h1>
         
@@ -64,8 +66,10 @@ export default function Terms() {
         </ol>
 
         <div className="mt-6 text-center">
-          <p className="text-lg text-red-500">
+          <p className="text-lg text-red-500 text-left">
             Al participar en este evento, confirmas que has leído, entendido y aceptas estos términos y condiciones. 
+          </p>
+          <p className="text-lg text-red-500 text-left">
             También reconoces que el evento puede estar sujeto a cambios y que participas bajo tu propia responsabilidad en cuanto a salud y aptitud física.
           </p>
         </div>

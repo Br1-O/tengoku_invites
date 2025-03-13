@@ -11,7 +11,9 @@ export const revalidate = false;
 
 export default function Disclaimer() {
   return (
-    <div className="flex items-center justify-center p-8 min-h-[100vh] overlay-shadow">
+    <div className="flex items-center justify-center p-8 min-h-[100vh]">
+      {/* Bg and Overlay */}
+      <div className="absolute top-0 left-0 w-full h-full z-[-1] bg-anime overlay-shadow"></div>
       <div className="bg-gray-900 p-5 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-red-500 mb-4">Renuncia de Responsabilidad</h1>
         

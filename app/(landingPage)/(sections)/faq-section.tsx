@@ -28,10 +28,6 @@ const QuestionAnswer =
     "answer": "La inscripción y participación del evento no tiene ningún tipo de costo adicional."
   },
   {
-    "question": "¿Hay límite requisitos para participar?",
-    "answer": "Sí, todos los participantes deben ser mayores de 18 años y asegurar que son aptos fisicos para las pruebas a realizarse al momento de la inscripción."
-  },
-  {
     "question": "¿Cómo se determina al ganador?",
     "answer": "Se estipularán reglas en cada juego, y los guardias serán los jueces de que dichas reglas se cumplan. En caso de que alguno determine que un jugador no cumplió con los requisitos para pasar una prueba su decisión será irrefutable y no estará abierta a discusión alguna."
   },

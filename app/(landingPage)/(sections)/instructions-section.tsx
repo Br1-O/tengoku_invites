@@ -83,7 +83,7 @@ export default function InstructionsSection() {
                   icon={MedalIcon} 
                   title="Ganar" 
                   description={`Para ganar el premio sólo debes salir victorioso en cada juego. Para esto deberás cumplir con los requisitos especificos para pasar a cada nueva etapa, y si eres quien lo haga en todos los juegos... \n ¡Ganaste! ¡Felicidades! \n...fácil, ¿no?`}
-                  border="blue" 
+                  border="red" 
                   shadow= {true} 
                   cornerContent="4" 
                   corner="top-left" 

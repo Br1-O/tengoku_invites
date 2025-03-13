@@ -79,6 +79,11 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        {/* Preload critical assets */}
+        <link rel="preload" as="image" href="/images/bg-anime.webp" />
+        <link rel="preload" as="image" href="/images/voting-room.webp" />
+        <link rel="preload" as="image" href="/logo-tengoku-game.webp" />
+        <link rel="preload" as="video" href="/videos/stairs.mp4" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[100vh] flex justify-center items-center`}

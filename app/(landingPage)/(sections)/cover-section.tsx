@@ -1,8 +1,10 @@
+"use client"
 import DownArrow from "@/app/components/arrow/downArrow";
 import { Trophy, Users } from "lucide-react";
 import Image from "next/image";
 
 export default function CoverSection() {
+
   return (
     <section id="home" className="trans-red-line-simple-bg relative min-h-screen flex items-center justify-center overflow-hidden pt-14 pb-20">
       {/* Video Background */}
@@ -13,6 +15,7 @@ export default function CoverSection() {
           muted
           loop
           playsInline
+          preload="auto" // Preload the video
         >
           <source src="/videos/stairs.mp4" type="video/mp4" />
           Tu navegador no soporta este video.
@@ -20,9 +23,9 @@ export default function CoverSection() {
       </div>
       
       {/* Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full z-[-1] overlay-shadow"></div>
+      <div className="overlay-shadow"></div>
 
-      <div className=" flex items-center justify-center z-10">
+      <div className= "flex items-center justify-center z-10 transition-opacity duration-500">
         <div className="flex flex-col justify-center items-center gap-8 text-center py-2">
           <div className="flex flex-col justify-center items-center space-y-4">
             <div className="w-80 sm:w-[25rem] md:w-[28rem] lg:w-[35rem] xl:w-[39rem]">
@@ -33,6 +36,7 @@ export default function CoverSection() {
                 layout="responsive"
                 width={1} 
                 height={1}
+                priority // Prioritize loading
                 draggable="false"
               >
               </Image>
