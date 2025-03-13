@@ -96,6 +96,12 @@ body{
   .bg-voting-room {
     background-attachment:scroll;
   }
+
+  .bg-anime {
+    background-position:top left;
+    background-size:contain;
+    background-repeat: repeat-y;
+  }
 }
 
 

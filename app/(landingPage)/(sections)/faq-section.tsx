@@ -12,8 +12,11 @@ const QuestionAnswer =
 [
   {
     "question": "¿Cómo puedo participar?",
-    "answer":
-      "Para participar debes escanear el QR de tu entrada, y de ser válida para competir deberás completar el formulario de inscripción. La confirmación de inscripción se enviará a tu correo electrónico."
+    "answer": "Para participar debes escanear el QR de tu entrada, y de ser válida para competir deberás completar el formulario de inscripción. La confirmación de inscripción se enviará a tu correo electrónico."
+  },
+  {
+    "question": "¿Cuál es el costo de inscripción?",
+    "answer": "La inscripción y participación del evento no tiene ningún tipo de costo adicional."
   },
   {
     "question": "¿Y si no confirmo mi inscripción?",
@@ -22,10 +25,6 @@ const QuestionAnswer =
   {
     "question": "¿Y si no estoy al inicio de algún juego?",
     "answer": "Serás descalificado y se te dará por eliminado, no pudiendo participar del juego en cuestión ni de ninguno de los posteriores dentro de esta competencia."
-  },
-  {
-    "question": "¿Cuál es el costo de inscripción?",
-    "answer": "La inscripción y participación del evento no tiene ningún tipo de costo adicional."
   },
   {
     "question": "¿Cómo se determina al ganador?",
