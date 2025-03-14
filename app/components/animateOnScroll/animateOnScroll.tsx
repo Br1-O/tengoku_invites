@@ -47,17 +47,6 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
     // Ensure immediate setting of initial state
     gsap.set(elementRef.current, { opacity: 0 });
 
-    // Define common "from" and "to" animations
-    const from = {
-      opacity: 0,
-      y: -50,  // Default position for "enterFromUp" animation
-    };
-
-    const to = {
-      opacity: 1,
-      y: 0,  // End position
-    };
-
     // Select animation based on the animationName prop
     switch (animationName) {
       case "fadeIn":

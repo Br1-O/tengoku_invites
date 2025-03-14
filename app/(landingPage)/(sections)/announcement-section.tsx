@@ -45,7 +45,7 @@ const Announcements =
 
 
 export default function AnnouncementSection() {
-  const [announcements, setAnnouncements] = useState<Announcement[]>(Announcements);
+  const [announcements] = useState<Announcement[]>(Announcements);
 
   return (
     <section id="novedades" className="relative w-full pt-14 pb-24 bg-black">
