@@ -12,9 +12,16 @@ interface Announcement {
 }
 
 const Announcements =
-[
+[  
   {
-    "id": 1,
+    "id": 4,
+    "image": "/images/announcements/poster_entradas.webp",
+    "title": "Entradas a la venta",
+    "description": "Ya podes comprar tus entradas anticipadas para la Tengoku Imperial. ¡Enterate dónde hacerlo!",
+    "href": "https://www.instagram.com/p/DHJAxb9xGMe/?hl=es-la&img_index=1"
+  },
+  {
+    "id": 3,
     "image": "/images/announcements/poster_tengoku_game_2.webp",
     "title": "Inscripciones Abiertas",
     "description": "Regístrate ahora para la próxima temporada de Tengoku Game.",
@@ -28,7 +35,7 @@ const Announcements =
     "href": "https://www.instagram.com/p/DFsv-Jfvv5k/?img_index=1"
   },
   {
-    "id": 3,
+    "id": 1,
     "image": "/images/announcements/poster_dandadan_announcement.webp",
     "title": "Premio confirmado",
     "description": "¡El pozo acumulado para el premio es de $100000!",
@@ -36,8 +43,9 @@ const Announcements =
   }
 ];
 
+
 export default function AnnouncementSection() {
-  const [announcements] = useState<Announcement[]>(Announcements);
+  const [announcements, setAnnouncements] = useState<Announcement[]>(Announcements);
 
   return (
     <section id="novedades" className="relative w-full pt-14 pb-24 bg-black">

@@ -17,28 +17,28 @@ export default function ClientScript() {
     window.addEventListener("scroll", handleScroll)
 
     // Animation for game cards on scroll
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
+    // const observer = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         entry.target.classList.add("visible")
+    //       }
+    //     })
+    //   },
+    //   { threshold: 0.1 },
+    // )
 
-    const gameCards = document.querySelectorAll(".game-card")
-    gameCards.forEach((card) => {
-      observer.observe(card)
-    })
+    // const gameCards = document.querySelectorAll(".game-card")
+    // gameCards.forEach((card) => {
+    //   observer.observe(card)
+    // })
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-      gameCards.forEach((card) => {
-        observer.unobserve(card)
-      })
-    }
+    // return () => {
+    //   window.removeEventListener("scroll", handleScroll)
+    //   gameCards.forEach((card) => {
+    //     observer.unobserve(card)
+    //   })
+    // }
   }, [])
 
   return null

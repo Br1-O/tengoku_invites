@@ -70,7 +70,7 @@ export default function AboutUs() {
             <SocialButton
               icon={<Mail className="w-8 h-8" />}
               text="VENTA DE ENTRADAS"
-              href="https://www.instagram.com/p/DFsv-Jfvv5k/?img_index=1"
+              href="https://www.instagram.com/p/DHJAxb9xGMe/?hl=es-la&img_index=1"
             />
 
             <SocialButton

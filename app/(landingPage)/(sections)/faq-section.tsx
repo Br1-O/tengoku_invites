@@ -9,14 +9,14 @@ interface QuestionAnswer{
 }
 
 const QuestionAnswer =
-[
+[  
   {
-    "question": "¿Cómo puedo participar?",
-    "answer": "Para participar debes escanear el QR de tu entrada, y de ser válida para competir deberás completar el formulario de inscripción. La confirmación de inscripción se enviará a tu correo electrónico."
+  "question": "¿Cuál es el costo de inscripción?",
+  "answer": "La inscripción y participación del evento no tiene ningún tipo de costo adicional."
   },
   {
-    "question": "¿Cuál es el costo de inscripción?",
-    "answer": "La inscripción y participación del evento no tiene ningún tipo de costo adicional."
+    "question": "¿Y si mi entrada no era válida?",
+    "answer": "¡Aún existe la posibilidad de poder participar! Ya que de no inscribirse o no estar presentes todos los participantes, se estarán sorteando sus lugares dentro de la competencia entre todos los asistentes que sí deseen participar."
   },
   {
     "question": "¿Y si no confirmo mi inscripción?",

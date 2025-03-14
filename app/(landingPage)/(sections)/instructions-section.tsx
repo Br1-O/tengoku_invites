@@ -58,7 +58,7 @@ export default function InstructionsSection() {
                   <IconTitleDescriptionCard 
                   icon={FilePenLineIcon} 
                   title="Inscripción" 
-                  description="Tu entrada fue una de las elegidas, ¡Felicidades! Llená el formulario de inscripción hasta el día Viernes 10/04 inclusive. Ten en cuenta que al llenarlo aceptaras a todos los términos y condiciones especificados en el apartado pertinente." 
+                  description="Si tu entrada fue una de las elegidas, ¡Felicidades! Llená el formulario de inscripción hasta el día Viernes 10/04 inclusive. Ten en cuenta que al llenarlo aceptaras a todos los términos y condiciones especificados en el apartado pertinente." 
                   border="blue" 
                   shadow= {true} 
                   cornerContent="2" 

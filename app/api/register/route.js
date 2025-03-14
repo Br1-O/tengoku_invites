@@ -62,7 +62,7 @@ export const POST = async (req) => {
         html: `
           <div style="background: linear-gradient(to right, #a00000, #380000); padding: 1.5rem; border-radius: 10px; color: white; font-family: Arial, sans-serif; width: 100%;">
               <h2 style="font-size: 24px; font-weight: bold; color: #fbbf24; text-align: center; margin-bottom: 1rem;">
-                  Nueva inscripción recibida
+                Nueva inscripción recibida
               </h2>
 
               <p style="font-size: 18px; font-weight: bold; color: #FFF; text-align: center; margin: 1rem auto;">
@@ -74,7 +74,7 @@ export const POST = async (req) => {
               </p>
 
               <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.25rem 1rem; border-radius: 15px; font-size: 18px; font-weight: 700; line-height: 1.6; color: #FFF; margin: 0.25rem auto; text-align: center;">
-                  Recuerda presentarte con tu entrada y documento al confirmar tu inscripción.
+                Recuerda respaldar esta información en otro lugar de modo seguro, para evitar que se pierda.
               </p>
           </div>
         `

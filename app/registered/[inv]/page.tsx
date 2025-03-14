@@ -17,7 +17,7 @@ const RegisterPage = () => {
             </div>
 
             <div className='text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto'>
-                Te esperamos a las 14:00 hs. en la base del escenario para confirmar tu participación. Ten en cuenta que de no hacerlo tu lugar será liberado y sorteado entre los asistentes.
+                Te esperamos media hora antes del inicio de los juegos, en la base del escenario para confirmar tu participación. Ten en cuenta que de no hacerlo tu lugar será liberado y sorteado entre los asistentes.
             </div>
 
             <div className="flex items-center justify-center flex-col my-3">

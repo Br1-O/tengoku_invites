@@ -192,7 +192,7 @@ const RegisterPage = () => {
           <p style="font-size: 16px; color: #E5E7EB">
             Recuerda que para que la inscripción sea válida
             <span style="color: white; font-weight: bold; text-decoration: underline">
-              deberás presentarte a las 14:00 hs. en la base del escenario
+              deberás presentarte media hora antes del inicio de los juegos en la base del escenario
             </span>
             para confirmar tu participación,
             <span style="color: white; font-weight: bold; text-decoration: underline">
