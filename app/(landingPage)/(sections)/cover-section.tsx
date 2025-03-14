@@ -1,5 +1,4 @@
 "use client"
-import AnimateOnScroll from "@/app/components/animateOnScroll/animateOnScroll";
 import DownArrow from "@/app/components/arrow/downArrow";
 import { Trophy, Users } from "lucide-react";
 import Image from "next/image";
