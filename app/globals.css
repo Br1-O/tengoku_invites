@@ -18,6 +18,7 @@
 
 * {
   transition: all 0.3s ease-in-out;
+  -webkit-user-drag: none;
 }
 
 html, body {
@@ -26,6 +27,7 @@ html, body {
   scroll-behavior: smooth;
   width: 100%;
   user-select: none;
+  overflow-x: hidden;
 }
 
 body{

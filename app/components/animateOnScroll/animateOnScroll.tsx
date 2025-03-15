@@ -30,14 +30,18 @@ interface AnimateOnScrollProps {
     | "back.out"
     | "linear"
     | "power4.out";
+  className?: string;
+  start?: string;
 }
 
 const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   children,
+  className = '',
   animationName = "fadeIn",
   duration = 1,
   delay = 0,
   ease = "power2.out",
+  start = "top bottom"
 }) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
 
@@ -60,7 +64,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -78,7 +82,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -97,7 +101,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -116,7 +120,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -135,7 +139,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -154,7 +158,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -173,7 +177,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -192,7 +196,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -211,7 +215,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -230,7 +234,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -249,7 +253,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -268,7 +272,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -287,7 +291,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -306,7 +310,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -324,7 +328,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             delay,
             scrollTrigger: {
               trigger: elementRef.current,
-              start: "top 50%",
+              start: start,
               toggleActions: "play reset play reset",
             },
           }
@@ -339,7 +343,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   }, [animationName, duration, delay, ease]);
 
   return (
-    <div ref={elementRef} className="animate-on-scroll">
+    <div ref={elementRef} className={`${className} animate-on-scroll`}>
       {children}
     </div>
   );
