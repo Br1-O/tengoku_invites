@@ -7,7 +7,7 @@ import { CalendarClockIcon, FilePenLineIcon, IdCardIcon, MedalIcon, TicketCheckI
 
 export default function InstructionsSection() {
 
-  let screenSize = useScreenSize();
+  const screenSize = useScreenSize();
 
   return (
     <section id="participar" className="relative py-20 text-white w-full">
