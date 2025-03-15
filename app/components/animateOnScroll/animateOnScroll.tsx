@@ -41,7 +41,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   duration = 1,
   delay = 0,
   ease = "power2.out",
-  start = "top bottom"
+  start = "top 75%"
 }) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
 
