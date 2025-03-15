@@ -32,6 +32,7 @@ interface AnimateOnScrollProps {
     | "power4.out";
   className?: string;
   start?: string;
+  toggleActions?: "play reset play reset"
 }
 
 const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
@@ -41,7 +42,8 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   duration = 1,
   delay = 0,
   ease = "power2.out",
-  start = "top 75%"
+  start = "top 75%",
+  toggleActions = "play none none reset"
 }) => {
   const elementRef = useRef<HTMLDivElement | null>(null);
 
@@ -65,7 +67,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -83,7 +85,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -102,7 +104,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -121,7 +123,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -140,7 +142,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -159,7 +161,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -178,7 +180,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -197,7 +199,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -216,7 +218,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -235,7 +237,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -254,7 +256,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -273,7 +275,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -292,7 +294,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -311,7 +313,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
@@ -329,7 +331,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
             scrollTrigger: {
               trigger: elementRef.current,
               start: start,
-              toggleActions: "play reset play reset",
+              toggleActions: toggleActions,
             },
           }
         );
