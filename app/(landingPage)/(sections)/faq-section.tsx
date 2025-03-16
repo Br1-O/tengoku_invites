@@ -1,5 +1,6 @@
 "use client"
 import { CustomAccordion, CustomAccordionItem } from "@/app/components/accordion/accordion"
+import AnimateOnScroll from "@/app/components/animateOnScroll/animateOnScroll";
 import DownArrow from "@/app/components/arrow/downArrow";
 import { useState } from "react"
 
@@ -58,14 +59,23 @@ return (
       <div className="max-w-3xl mx-auto">
         <CustomAccordion className="space-y-4">
           {questionAnswer.map((faq, index) => (
-            <CustomAccordionItem
+            <AnimateOnScroll
+              animationName = {index%2 === 0 ? "enterFromLeft" : "enterFromRight"}
+              duration = {0.1}
+              delay = {index - (index/2)}
+              ease = "power2.out"
+              start="top 95%"
               key={index}
-              question={faq.question}
-              answer={faq.answer}
-              className={`border ${index % 2 === 0 ? 'border-[#00ffff]/30' : 'border-[#ff0080]/30'} ${index % 2 === 0 ? 'hover:bg-[#00ffff]/30' : 'hover:bg-[#ff0080]/30'} rounded-lg overflow-hidden bg-black/60`}
-              triggerClassName="px-6 py-4 text-slate-300 hover:text-[#FFF] hover:no-underline"
-              contentClassName="px-6 pb-4 text-gray-300"
-            />
+            >
+              <CustomAccordionItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                className={`border ${index % 2 === 0 ? 'border-[#00ffff]/30' : 'border-[#ff0080]/30'} ${index % 2 === 0 ? 'hover:bg-[#00ffff]/30' : 'hover:bg-[#ff0080]/30'} rounded-lg overflow-hidden bg-black/60`}
+                triggerClassName="px-6 py-4 text-slate-300 hover:text-[#FFF] hover:no-underline"
+                contentClassName="px-6 pb-4 text-gray-300"
+              />
+            </AnimateOnScroll>
           ))}
         </CustomAccordion>
       </div>

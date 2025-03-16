@@ -32,7 +32,7 @@ interface AnimateOnScrollProps {
     | "power4.out";
   className?: string;
   start?: string;
-  toggleActions?: "play reset play reset"
+  toggleActions?: string
 }
 
 const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({

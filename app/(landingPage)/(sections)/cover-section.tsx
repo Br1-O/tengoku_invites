@@ -33,6 +33,7 @@ export default function CoverSection() {
               <div className="w-80 sm:w-[25rem] md:w-[28rem] lg:w-[35rem] xl:w-[39rem]">
                 <Image
                   src="/logo-tengoku-game.webp" 
+                  id="mainLogo"
                   className="logo object-contain"
                   alt="logo Tengoku Game"
                   layout="responsive"
@@ -50,7 +51,7 @@ export default function CoverSection() {
             </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-14 md:gap-20 mt-5 md:mt-14">
-            <div className="transform-to-left bg-black/60 backdrop-blur-sm border border-[#00ffff]/30 rounded-xl p-6 w-52 md:w-64 hover:scale-105 hover:shadow-[2px_2px_10px_#00ffff] transition-transform duration-300">
+            <div className="cover-card transform-to-left bg-black/60 backdrop-blur-sm border border-[#00ffff]/30 rounded-xl p-6 w-52 md:w-64 hover:scale-105 hover:shadow-[2px_2px_10px_#00ffff] transition-transform duration-300">
               <div className="flex items-center justify-center mb-4">
                 <Users className="h-10 w-10 text-[#00ffff]" />
               </div>
@@ -60,7 +61,7 @@ export default function CoverSection() {
               <p className="text-sm text-gray-400">...y un solo ganador. </p>
             </div>
 
-            <div className="transform-to-right bg-black/60 backdrop-blur-sm border border-[#ff0080]/30 rounded-xl p-6 w-52 md:w-64 hover:scale-105 hover:shadow-[2px_2px_10px_#ff0080] transition-transform duration-300">
+            <div className="cover-card transform-to-right bg-black/60 backdrop-blur-sm border border-[#ff0080]/30 rounded-xl p-6 w-52 md:w-64 hover:scale-105 hover:shadow-[2px_2px_10px_#ff0080] transition-transform duration-300">
               <div className="flex items-center justify-center mb-4">
                 <Trophy className="h-10 w-10 text-[#ff0080]" />
               </div>

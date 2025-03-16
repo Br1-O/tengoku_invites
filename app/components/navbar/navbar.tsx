@@ -2,6 +2,7 @@ import Link from "next/link";
 import NavLink from "./navLink";
 import Image from "next/image";
 import { useState } from "react";
+import ClientScript from "@/app/(landingPage)/script";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,13 +11,14 @@ export default function NavBar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 group" id="navbar">
+    <>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
       <div className="container mx-auto px-4 py-5 flex items-center justify-between">
         <Link href="#home">
           <Image
             src="/logo-tengoku-game.webp"
             id="navbar-logo"
-            className="logo object-contain max-w-[5.8rem] h-auto opacity-0 group-[.scrolled]:opacity-100"
+            className="logo object-contain max-w-[5.8rem] h-auto opacity-0"
             alt="logo Tengoku Game"
             layout="responsive"
             width={1}
@@ -70,5 +72,7 @@ export default function NavBar() {
         </nav>
       </div>
     </header>
+    <ClientScript />
+    </>
   );
 }
