@@ -112,7 +112,7 @@ export default function InstructionsSection() {
               <AnimateOnScroll
                 animationName = "enterFromRight"
                 duration = {0.5}
-                delay = {1.75}
+                delay = {1.5}
                 ease = "power2.out"
                 className="md:col-span-2 md:row-span-2 md:row-start-5 xl:row-span-4 xl:col-start-3 xl:row-start-1 relative flex flex-col justify-center items-center p-2 rounded-xl"
               >
