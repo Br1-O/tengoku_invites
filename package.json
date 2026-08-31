@@ -10,14 +10,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^6.4.0",
     "@tanstack/react-query": "^5.66.9",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "gsap": "^3.12.7",
     "lucide-react": "^0.476.0",
-    "next": "15.1.7",
-    "nodemailer": "^6.10.0",
+    "next": "^16.3.3",
+    "nodemailer": "^9.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "sweetalert2": "^11.17.2",
@@ -25,14 +24,21 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@prisma/client": "^6.19.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "postcss": "^8",
-    "prisma": "^6.4.0",
+    "postcss": "^8.5.26",
+    "prisma": "^6.19.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "prisma": {
+      "deepmerge-ts": "$deepmerge-ts"
+    },
+    "deepmerge-ts": "^7.1.5"
   }
 }
