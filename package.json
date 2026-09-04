@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.19.3",
     "@tanstack/react-query": "^5.66.9",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -24,7 +25,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@prisma/client": "^6.19.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -36,9 +36,6 @@
     "typescript": "^5"
   },
   "overrides": {
-    "prisma": {
-      "deepmerge-ts": "$deepmerge-ts"
-    },
-    "deepmerge-ts": "^7.1.5"
+    "deepmerge-ts": "^8.0.0"
   }
 }

@@ -22,3 +22,15 @@ model Inscripcion {
   entrada   Int
   createdAt DateTime @default(now())
 }
+
+model EncuestaSatisfaccion {
+  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
+  email               String
+  calificacionEvento Int
+  actividadesGustadas String[]
+  opinionPrecio       Int
+  sugerencias         String?
+  createdAt           DateTime @default(now())
+
+  @@map("EncuestaSatisfaccion")
+}

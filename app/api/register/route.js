@@ -15,7 +15,7 @@ export const POST = async (req) => {
     // Validaciones básicas
     if (!validatedFields.success) {
       return new Response(
-        JSON.stringify({ error: parsed.error.flatten().fieldErrors }),
+        JSON.stringify({ error: validatedFields.error.flatten().fieldErrors }),
         { status: 400 }
       );
     }

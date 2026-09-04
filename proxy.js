@@ -7,7 +7,7 @@ const WINDOW_MS = 60 * 1000; // Time window in milliseconds
 const BLACKLIST_TIME = 60 * 1000; // Blacklist duration in milliseconds (1 minute)
 
 //DoS protection
-export function middleware(req) {
+export function proxy(req) {
   const ip = req.ip || req.headers.get("x-forwarded-for") || "127.0.0.1";
   const now = Date.now();
 
