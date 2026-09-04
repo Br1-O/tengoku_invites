@@ -36,7 +36,8 @@ const RegisterPage = () => {
   const router = useRouter();
   const params = useParams();
   
-  const emailParam = Array.isArray(params?.email) ? params.email[0] : params?.email || "";
+  const rawEmailParam = params?.email;
+  const emailParam = Array.isArray(rawEmailParam) ? rawEmailParam[0] : rawEmailParam || "";
 
   const [form, setForm] = useState<FormData>({
     email: "",
