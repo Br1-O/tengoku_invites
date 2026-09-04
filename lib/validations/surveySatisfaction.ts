@@ -1,10 +1,13 @@
 import { z } from "zod"
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const surveySchema = z.object({
-  email: z
-    .string()
-    .min(1, "*el email es requerido")
-    .email("El email no es válido"),
+
+email: z
+  .string()
+  .trim()
+  .min(1, { message: "* El email es requerido" })
+  .regex(emailRegex, { message: "* El email no es válido" }),
 
   calificacionEvento: z
     .string()

@@ -44,7 +44,7 @@ const RegisterPage = () => {
     sugerencias: "",
   });
 
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Al cargar, intentamos decodificar el email del path
@@ -111,10 +111,22 @@ const RegisterPage = () => {
       return;
     }
 
-    if (!isChecked) {
-      setError("* Debes aceptar los términos y condiciones");
-      return;
-    }
+    // if (!isChecked) {
+    //   setError("* Debes aceptar los términos y condiciones");
+    //   return;
+    // }
+    
+    {/* Términos */}
+    {/* <div className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+        className="accent-fuchsia-500 w-4 h-4"
+      />
+      <span className="text-sm">Acepto los términos y condiciones</span>
+    </div> */}
+
 
     Swal.fire({
       title: "¡Gracias por participar!",
@@ -255,17 +267,6 @@ const RegisterPage = () => {
               onChange={(e) => setForm({ ...form, sugerencias: e.target.value })}
               className="w-full p-3 rounded-md bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-fuchsia-500"
             />
-          </div>
-
-          {/* Términos */}
-          <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={() => setIsChecked(!isChecked)}
-              className="accent-fuchsia-500 w-4 h-4"
-            />
-            <span className="text-sm">Acepto los términos y condiciones</span>
           </div>
 
           {error && <p className="text-yellow-300 font-semibold">{error}</p>}

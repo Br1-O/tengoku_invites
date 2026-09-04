@@ -1,4 +1,5 @@
 import { z } from "zod"
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const registerSchema = z.object({
   nombre: z
@@ -14,7 +15,11 @@ export const registerSchema = z.object({
     .refine((val) => !isNaN(Number(val)), "*la edad debe ser un número")
     .refine((val) => Number(val) >= 18, "*debes ser mayor de 18 años para participar")
     .refine((val) => Number(val) < 100, "*debes tener hasta 99 años para participar"),
-  email: z.string().min(1, "*el email es requerido").email("El email no es válido"),
+  email: z
+    .string()
+    .trim()
+    .min(1, { message: "* El email es requerido" })
+    .regex(emailRegex, { message: "* El email no es válido" }),  
   entrada: z.string().min(1, "*el número de entrada es requerido"),
 })
 
