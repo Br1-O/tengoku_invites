@@ -19,7 +19,7 @@ const RegisterLayout = ({
     return (
         <div className="relative w-full lg:w-4/5 flex items-center justify-center flex-col py-5 px-2 mx-auto min-h-screen">
           {/* 
-            En mobile aplicamos inline styles para forzar:
+            En mobile inline styles para forzar:
             1. backgroundSize: '350% auto' -> Agranda la imagen un 350% del ancho del viewport (zoom masivo).
             2. backgroundPosition: 'left top' -> Clava el encuadre únicamente en el margen izquierdo.
             3. backgroundRepeat: 'no-repeat' -> Evita que la imagen intente repetirse.

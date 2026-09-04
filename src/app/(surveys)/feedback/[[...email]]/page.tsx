@@ -207,14 +207,14 @@ const RegisterPage = () => {
           {/* 2. Actividades Gustadas */}
           <div className="w-full bg-slate-900/60 p-4 rounded-lg border border-slate-800">
             <label className="block text-fuchsia-400 text-lg font-bold mb-1">
-              ¿Qué actividad te gustó más? *
+              ¿Qué actividades te gustaron más? *
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-3">
               {[
                 "Concurso de cosplay",
                 "Concurso de canto",
-                "De dibujo",
-                "De baile",
+                "Concurso de dibujo",
+                "Concurso de baile",
                 "Invitados",
                 "Sorteos",
                 "Stands",
