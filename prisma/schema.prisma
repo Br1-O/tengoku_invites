@@ -24,13 +24,16 @@ model Inscripcion {
 }
 
 model EncuestaSatisfaccion {
-  id                  String   @id @default(auto()) @map("_id") @db.ObjectId
-  email               String
-  calificacionEvento Int
-  actividadesGustadas String[]
-  opinionPrecio       Int
-  sugerencias         String?
-  createdAt           DateTime @default(now())
+  id                   String   @id @default(auto()) @map("_id") @db.ObjectId
+  email                String
+  calificacionEvento   Int
+  actividadesGustadas  String[]
+  opinionPrecio        Int
+  comodidadLugar       Int
+  facilidadLlegada     Int
+  recomendacionTengoku Int
+  sugerencias          String?
+  createdAt            DateTime @default(now())
 
   @@map("EncuestaSatisfaccion")
 }

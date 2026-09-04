@@ -23,7 +23,16 @@ export const POST = async (req) => {
       );
     }
 
-    const { email, calificacionEvento, actividadesGustadas, opinionPrecio, sugerencias } = validatedFields.data;
+    const {
+      email,
+      calificacionEvento,
+      actividadesGustadas,
+      opinionPrecio,
+      comodidadLugar,
+      facilidadLlegada,
+      recomendacionTengoku,
+      sugerencias,
+    } = validatedFields.data;
 
     // Guardar en MongoDB con Prisma
     try {
@@ -33,6 +42,9 @@ export const POST = async (req) => {
           calificacionEvento: parseInt(calificacionEvento, 10),
           actividadesGustadas,
           opinionPrecio: parseInt(opinionPrecio, 10),
+          comodidadLugar: parseInt(comodidadLugar, 10),
+          facilidadLlegada: parseInt(facilidadLlegada, 10),
+          recomendacionTengoku: parseInt(recomendacionTengoku, 10),
           sugerencias: sugerencias || "",
         },
       });
@@ -79,6 +91,9 @@ export const POST = async (req) => {
                 <p><strong>· Calificación General:</strong> ${calificacionEvento} / 10</p>
                 <p><strong>· Actividades que le gustaron:</strong><br> ${actividadesGustadas.map((act) => `  - ${act}`).join("<br>")}</p>
                 <p><strong>· Opinión del Precio:</strong> ${opinionPrecio} / 10</p>
+                <p><strong>· Comodidad del Lugar:</strong> ${comodidadLugar} / 10</p>
+                <p><strong>· Facilidad para Llegar:</strong> ${facilidadLlegada} / 10</p>
+                <p><strong>· Recomienda Tengoku:</strong> ${recomendacionTengoku} / 10</p>
                 <p><strong>· Sugerencias / Comentarios:</strong><br> ${sugerencias && sugerencias.trim() !== "" ? sugerencias : "<em>Sin sugerencias</em>"}</p>
               </div>
 
