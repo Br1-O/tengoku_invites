@@ -33,6 +33,7 @@ model EncuestaSatisfaccion {
   facilidadLlegada     Int
   recomendacionTengoku Int
   sugerencias          String?
+  suscribirNovedades   Boolean  @default(false)
   createdAt            DateTime @default(now())
 
   @@map("EncuestaSatisfaccion")

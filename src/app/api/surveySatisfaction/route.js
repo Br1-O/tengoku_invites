@@ -32,6 +32,7 @@ export const POST = async (req) => {
       facilidadLlegada,
       recomendacionTengoku,
       sugerencias,
+      suscribirNovedades,
     } = validatedFields.data;
 
     // Guardar en MongoDB con Prisma
@@ -46,6 +47,7 @@ export const POST = async (req) => {
           facilidadLlegada: parseInt(facilidadLlegada, 10),
           recomendacionTengoku: parseInt(recomendacionTengoku, 10),
           sugerencias: sugerencias || "",
+          suscribirNovedades: Boolean(suscribirNovedades),
         },
       });
     } catch (dbError) {
@@ -95,6 +97,7 @@ export const POST = async (req) => {
                 <p><strong>· Facilidad para Llegar:</strong> ${facilidadLlegada} / 10</p>
                 <p><strong>· Recomienda Tengoku:</strong> ${recomendacionTengoku} / 10</p>
                 <p><strong>· Sugerencias / Comentarios:</strong><br> ${sugerencias && sugerencias.trim() !== "" ? sugerencias : "<em>Sin sugerencias</em>"}</p>
+                <p><strong>· Suscripto a sorteos/novedades:</strong> ${suscribirNovedades ? "✅ SÍ" : "❌ NO"}</p>
               </div>
 
               <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.5rem 1rem; border-radius: 15px; font-size: 14px; font-weight: 700; color: #FFF; margin: 1rem auto; text-align: center;">

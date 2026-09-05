@@ -17,6 +17,7 @@ interface FormData {
   facilidadLlegada: string;
   recomendacionTengoku: string;
   sugerencias: string;
+  suscribirNovedades: boolean;
 }
 
 const submitSurvey = async (form: FormData) => {
@@ -48,6 +49,7 @@ const RegisterPage = () => {
     facilidadLlegada: "",
     recomendacionTengoku: "",
     sugerencias: "",
+    suscribirNovedades: false,
   });
 
   const [error, setError] = useState<string | null>(null);
@@ -389,6 +391,23 @@ const RegisterPage = () => {
               className="w-full p-3 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-fuchsia-500 transition-colors duration-200 hover:border-fuchsia-500/50"
             />
           </div>
+
+          {/* 8. Suscripción a Novedades (Opcional) */}
+            <label
+              className={`flex items-start gap-3 cursor-pointer transition-all duration-300 p-2 rounded-md ${
+                form.suscribirNovedades ? "text-white" : "text-slate-300 hover:text-white"
+              }`}
+            >
+              <input
+                type="checkbox"
+                checked={form.suscribirNovedades}
+                onChange={(e) => setForm({ ...form, suscribirNovedades: e.target.checked })}
+                className="accent-fuchsia-500 w-5 h-5 mt-0.5 cursor-pointer rounded"
+              />
+              <span className="text-sm md:text-base font-medium select-none">
+                Deseo recibir información sobre futuros sorteos, eventos y novedades en mi email.
+              </span>
+            </label>
 
           {error && (
             <p className="text-yellow-300 font-semibold bg-yellow-950/40 p-3 rounded-md border border-yellow-700/50 text-center">

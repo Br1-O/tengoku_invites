@@ -72,6 +72,11 @@ export const surveySchema = z.object({
     .string()
     .max(500, "*las sugerencias no pueden superar los 500 caracteres")
     .optional(),
+
+  suscribirNovedades: z
+    .boolean()
+    .optional()
+    .default(false)
 });
 
 export type EncuestaFormData = z.infer<typeof surveySchema>;
