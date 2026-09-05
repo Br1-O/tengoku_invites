@@ -1,5 +1,6 @@
 import client from "@/lib/prismaInstance";
 import { surveySchema } from "@/lib/validations/surveySatisfaction";
+import { getDeterministicAccount } from "@/lib/email/roundRobin";
 import nodemailer from "nodemailer";
 
 export const POST = async (req) => {
@@ -58,14 +59,17 @@ export const POST = async (req) => {
       );
     }
 
-    // Configurar Nodemailer
+    // Seleccionar cuenta de forma determinista
+    let selectedAccount;
     let transporter;
+
     try {
+      selectedAccount = getDeterministicAccount();
       transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
+          user: selectedAccount.user,
+          pass: selectedAccount.pass,
         },
       });
     } catch (mailerError) {
@@ -79,8 +83,8 @@ export const POST = async (req) => {
     // Correo para organizadores
     try {
       await transporter.sendMail({
-        from: `"<System notification> Tengoku Games" <${process.env.EMAIL_USER}>`,
-        to: `${process.env.EMAIL_USER}`,
+        from: `"<System notification> Tengoku Games" <${selectedAccount.user}>`,
+        to: selectedAccount.user,
         subject: "Nueva respuesta de Encuesta de Satisfacción",
         html: `
           <div style="background: linear-gradient(to right, #a00000, #380000); padding: 1.5rem; border-radius: 10px; color: white; font-family: Arial, sans-serif; width: 100%;">
@@ -101,7 +105,7 @@ export const POST = async (req) => {
               </div>
 
               <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.5rem 1rem; border-radius: 15px; font-size: 14px; font-weight: 700; color: #FFF; margin: 1rem auto; text-align: center;">
-                Esta respuesta ya se encuentra almacenada en la base de datos de MongoDB Atlas.
+                Enviado vía: ${selectedAccount.user} | Almacenado en MongoDB Atlas.
               </p>
           </div>
         `,
@@ -118,7 +122,7 @@ export const POST = async (req) => {
     if (email) {
       try {
         await transporter.sendMail({
-          from: `"Organización Tengoku Games" <${process.env.EMAIL_USER}>`,
+          from: `"Organización Tengoku Games" <${selectedAccount.user}>`,
           to: email,
           subject: "¡Gracias por tu opinión sobre Tengoku Games!",
           html: `
