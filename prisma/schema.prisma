@@ -38,3 +38,35 @@ model EncuestaSatisfaccion {
 
   @@map("EncuestaSatisfaccion")
 }
+
+enum Role {
+  SUPERADMIN
+  ADMIN
+  USER
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+model User {
+  id                  String     @id @default(auto()) @map("_id") @db.ObjectId
+  username            String     @unique
+  email               String     @unique
+  password            String     // Hash Bcrypt/Argon2
+  nombre              String
+  apellido            String
+  role                Role       @default(USER)
+  status              UserStatus @default(ACTIVE)
+  
+  // Seguridad y Recuperación
+  resetToken          String?    // Token encriptado/hasheado de recuperación
+  resetTokenExpiry    DateTime?  // Expiración del token
+  lastLogin           DateTime?
+
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+
+  @@map("users")
+}

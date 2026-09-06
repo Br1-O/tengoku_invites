@@ -1,4 +1,4 @@
-import { getInviteValueFromToken } from "@/lib/getTokenInviteValues";
+import { getInviteValueFromToken } from "@/lib/invites/getTokenInviteValues";
 
 export const GET = async(req) => {
     const token = req.nextUrl.searchParams.get("token");;
