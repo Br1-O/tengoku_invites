@@ -4,11 +4,11 @@ import { verifyPassword, generateToken } from "@/lib/auth/utils";
 import { z } from "zod";
 
 const loginSchema = z.object({
-  usernameOrEmail: z.string().min(1, "Usuario o email requerido"),
-  password: z.string().min(1, "Contraseña requerida"),
+  usernameOrEmail: z.string().min(1),
+  password: z.string().min(1),
 });
 
-export const POST = async (req: NextRequest) => {
+export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const validated = loginSchema.safeParse(body);
@@ -19,7 +19,6 @@ export const POST = async (req: NextRequest) => {
 
     const { usernameOrEmail, password } = validated.data;
 
-    // Buscar usuario por username o por email
     const user = await client.user.findFirst({
       where: {
         OR: [{ username: usernameOrEmail }, { email: usernameOrEmail }],
@@ -27,23 +26,12 @@ export const POST = async (req: NextRequest) => {
       },
     });
 
-    if (!user) {
+    if (!user || !(await verifyPassword(password, user.password))) {
       return NextResponse.json({ error: "Credenciales incorrectas" }, { status: 401 });
     }
 
-    const isValidPassword = await verifyPassword(password, user.password);
-    if (!isValidPassword) {
-      return NextResponse.json({ error: "Credenciales incorrectas" }, { status: 401 });
-    }
-
-    // Actualizar último login
-    await client.user.update({
-      where: { id: user.id },
-      data: { lastLogin: new Date() },
-    });
-
-    // Generar Token
-    const token = generateToken({
+    // Generar Token con await
+    const token = await generateToken({
       userId: user.id,
       username: user.username,
       email: user.email,
@@ -52,19 +40,14 @@ export const POST = async (req: NextRequest) => {
 
     const response = NextResponse.json({
       message: "Login exitoso",
-      user: {
-        username: user.username,
-        nombre: user.nombre,
-        apellido: user.apellido,
-        role: user.role,
-      },
+      user: { username: user.username, role: user.role },
     });
 
-    // Configurar Cookie HTTPOnly (Seguridad Máxima)
+    // Guardar Cookie Segura
     response.cookies.set("auth_token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      httpOnly: true, // Inaccesible desde JS/XSS
+      secure: process.env.NODE_ENV === "production", // HTTPS en Vercel
+      sameSite: "lax",
       maxAge: 60 * 60 * 8, // 8 horas
       path: "/",
     });
@@ -74,4 +57,4 @@ export const POST = async (req: NextRequest) => {
     console.error("Error en login:", error);
     return NextResponse.json({ error: "Error en el servidor" }, { status: 500 });
   }
-};
+}

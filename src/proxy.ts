@@ -1,3 +1,4 @@
+// proxy.ts (o src/proxy.ts)
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifyToken } from "@/lib/auth/utils";
@@ -8,7 +9,7 @@ const MAX_REQUESTS = 35;
 const WINDOW_MS = 60 * 1000;
 const BLACKLIST_TIME = 60 * 1000;
 
-export function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Extracción de IP compatible con TS
@@ -65,16 +66,17 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL("/login", req.url));
     }
 
-    try {
-      const payload = verifyToken(token) as { role?: string } | null;
+    // verifyToken es asíncrono gracias a jose
+    const payload = await verifyToken(token);
 
-      const userRole = payload?.role?.toUpperCase();
-
-      if (!payload || (userRole !== "ADMIN" && userRole !== "SUPERADMIN")) {
-        return NextResponse.rewrite(new URL("/not-found", req.url));
-      }
-    } catch {
+    if (!payload) {
       return NextResponse.redirect(new URL("/login", req.url));
+    }
+
+    const userRole = payload.role?.toUpperCase();
+
+    if (userRole !== "ADMIN" && userRole !== "SUPERADMIN") {
+      return NextResponse.redirect(new URL("/404", req.url));
     }
   }
 

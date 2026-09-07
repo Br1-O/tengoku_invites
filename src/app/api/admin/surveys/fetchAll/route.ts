@@ -1,20 +1,21 @@
+// src/app/api/admin/surveys/fetchAll/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import client from "@/lib/prismaInstance";
 import { authenticateAdmin } from "@/lib/auth/guards";
+import client from "@/lib/prismaInstance";
 
-export const GET = async (req: NextRequest) => {
-  // Guard de Autenticación
-  const authResult = authenticateAdmin(req);
-  if (authResult instanceof NextResponse) return authResult;
+export async function GET(req: NextRequest) {
+  const auth = await authenticateAdmin(req);
 
-  try {
-    const encuestas = await client.encuestaSatisfaccion.findMany({
-      orderBy: { createdAt: "desc" },
-    });
-
-    return NextResponse.json({ encuestas }, { status: 200 });
-  } catch (error) {
-    console.error("Error al obtener encuestas:", error);
-    return NextResponse.json({ error: "Error de servidor" }, { status: 500 });
+  // Si auth es una instancia de NextResponse, significa que falló (401 o 403)
+  if (auth instanceof NextResponse) {
+    return auth;
   }
-};
+
+  // Si pasa, auth contiene el JWTPayload
+  try {
+    const encuestas = await client.encuestaSatisfaccion.findMany(); // Ajustá a tu modelo de Prisma
+    return NextResponse.json({ encuestas });
+  } catch {
+    return NextResponse.json({ error: "Error al obtener encuestas" }, { status: 500 });
+  }
+}
