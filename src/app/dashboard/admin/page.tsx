@@ -5,6 +5,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { AdminCard } from "@/src/components/admin/AdminCard";
 import { SurveyCard, SurveyData } from "@/src/components/admin/SurveyCard";
 import { Pagination } from "@/src/components/pagination/Pagination";
+import { LogoutButton } from "@/src/components/btns/logoutBtn";
 
 export default function DashboardAdminPage() {
   const [surveys, setSurveys] = useState<SurveyData[]>([]);
@@ -18,7 +19,8 @@ export default function DashboardAdminPage() {
     const fetchSurveys = async () => {
       try {
         const res = await fetch("/api/admin/surveys/fetchAll");
-        if (!res.ok) throw new Error("Error en la petición");
+        if (!res.ok) return;
+
         const data = await res.json();
         if (data && Array.isArray(data.encuestas)) {
           setSurveys(data.encuestas);
@@ -41,15 +43,21 @@ export default function DashboardAdminPage() {
   }, [surveys, currentPage, pageSize]);
 
   return (
-    <div className="w-full mt-10 space-y-6">
-      {/* Banner / Header */}
-      <div className="text-center my-6">
-        <h1 className="inline-block bg-[#ff0080] text-white text-2xl md:text-3xl font-extrabold px-8 py-2 rounded-md shadow-lg uppercase tracking-wider">
-          Dashboard de Encuestas
-        </h1>
-        <p className="text-gray-400 text-sm mt-3">
-          Total respuestas recibidas: <span className="text-white font-bold">{surveys.length}</span>
-        </p>
+    <div className="w-full mt-10 space-y-6 relative">
+      {/* Header con el Botón Reutilizable arriba a la izquierda */}
+      <div className="relative flex flex-col items-center justify-center my-6">
+        <div className="sm:absolute left-0 top-0 mb-4 sm:mb-0">
+          <LogoutButton />
+        </div>
+
+        <div className="text-center">
+          <h1 className="inline-block bg-[#ff0080] text-white text-2xl md:text-3xl font-extrabold px-8 py-2 rounded-md shadow-lg uppercase tracking-wider">
+            Dashboard de Encuestas
+          </h1>
+          <p className="text-gray-400 text-sm mt-3">
+            Total respuestas recibidas: <span className="text-white font-bold">{surveys.length}</span>
+          </p>
+        </div>
       </div>
 
       {/* Contenido principal */}
@@ -63,7 +71,6 @@ export default function DashboardAdminPage() {
         </AdminCard>
       ) : (
         <div className="space-y-6 w-full">
-          {/* Barra de Paginación Superior */}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
@@ -73,14 +80,12 @@ export default function DashboardAdminPage() {
             onPageSizeChange={setPageSize}
           />
 
-         {/* Grilla responsiva adaptada según ancho */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 w-full">
             {currentSurveys.map((survey) => (
               <SurveyCard key={survey.id || survey.email} survey={survey} />
             ))}
           </div>
 
-          {/* Barra de Paginación Inferior */}
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
