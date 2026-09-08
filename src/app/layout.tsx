@@ -41,28 +41,29 @@ export const metadata: Metadata = {
     canonical: "https://tengokugame.vercel.app"
   },
   openGraph: {
-    type: "website",
-    url: "https://tengokugame.vercel.app",
-    siteName: "Tengoku Games",
-    title: "Tengoku Games | Convencion Tengoku Imperial",
-    description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
-    images: [
-      {
-        url: "https://tengokugame.vercel.app/images/poster_promo.webp",
-        width: 1200,
-        height: 630,
-        alt: "Imagen promocional de Tengoku games",
-      },
-    ],
-    locale: "en_US",
+  type: "website",
+  url: "https://tengokugame.vercel.app",
+  siteName: "Tengoku Games",
+  title: "Tengoku Games | Convencion Tengoku Imperial",
+  description:
+    "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+  images: [
+    {
+      url: "https://tengokugame.vercel.app/images/tengoku-banner-email.webp",
+      width: 1200,
+      height: 630,
+      alt: "Imagen promocional de Tengoku Games",
+    },
+  ],
+  locale: "es_AR",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@TengokuGames",
     title: "Tengoku Games | Convencion Tengoku Imperial",
-    description: "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
-    images: ["https://tengokugame.vercel.app/images/poster_promo.webp"],
-  }
+    description:
+      "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+    images: ["https://tengokugame.vercel.app/images/tengoku-banner-email.webp"],
+  },
 };
 
 export const viewport = {

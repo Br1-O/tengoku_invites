@@ -122,45 +122,173 @@ export const POST = async (req) => {
     if (email) {
       try {
         await transporter.sendMail({
-          from: `"Organización Tengoku Games" <${selectedAccount.user}>`,
+          from: `"Organización Tengoku Imperial" <${selectedAccount.user}>`,
           to: email,
-          subject: "¡Gracias por tu opinión sobre Tengoku Games!",
+          subject: "¡Gracias por tu opinión sobre la convención Tengoku!",
+
           html: `
-            <div style="background: linear-gradient(to right, #a00000, #380000); padding: 1.5rem; border-radius: 10px; color: white; font-family: Arial, sans-serif; width: 100%;">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <h1 style="font-size: 32px; font-weight: bold; color: #fff;">
-                        ¡Gracias por completar la encuesta!
-                    </h1>
+            <div
+              style="
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: #700000;
+                background: linear-gradient(to right, #a00000, #380000);
+                font-family: Arial, Helvetica, sans-serif;
+              "
+            >
+              <div
+                style="
+                  max-width: 700px;
+                  margin: 0 auto;
+                  padding: 30px 20px;
+                  box-sizing: border-box;
+                  color: #ffffff;
+                "
+              >
+
+                <!-- Título -->
+                <div
+                  style="
+                    text-align: center;
+                    margin-bottom: 25px;
+                  "
+                >
+                  <h1
+                    style="
+                      margin: 0;
+                      font-size: 32px;
+                      line-height: 1.2;
+                      font-weight: bold;
+                      color: #ffffff;
+                    "
+                  >
+                    ¡Gracias por completar la encuesta!
+                  </h1>
                 </div>
 
-                <div style="width: max-content; margin: 0 auto; padding: 1rem;">
-                    <div style="text-align: center; background: linear-gradient(to right, #200000, #300000); padding: 1rem; border-radius: 15px;">
-                        <p style="font-size: 18px; font-weight: bold; color: #FFF; margin: 0;">
-                            Recibimos tus respuestas correctamente.
-                        </p>
-                    </div>
 
-                    <p style="font-size: 16px; color: #FFF; margin: 1.5rem auto; text-align: center; max-width: 500px; line-height: 1.5;">
-                      Queríamos agradecerte por tomarte el tiempo de compartir tu experiencia con nosotros. 
-                      <strong>Tendremos muy en cuenta tus opiniones y sugerencias</strong> para que la próxima edición de Tengoku Games sea aún más increíble.
+                <!-- Mensaje principal -->
+                <div
+                  style="
+                    max-width: 550px;
+                    margin: 0 auto;
+                  "
+                >
+
+                  <div
+                    style="
+                      text-align: center;
+                      background-color: #250000;
+                      background: linear-gradient(to right, #200000, #300000);
+                      padding: 16px;
+                      border-radius: 15px;
+                      margin-bottom: 25px;
+                    "
+                  >
+                    <p
+                      style="
+                        margin: 0;
+                        font-size: 18px;
+                        line-height: 1.4;
+                        font-weight: bold;
+                        color: #ffffff;
+                      "
+                    >
+                      Recibimos tus respuestas correctamente.
                     </p>
+                  </div>
+
+
+                  <p
+                    style="
+                      margin: 0 0 25px 0;
+                      font-size: 16px;
+                      line-height: 1.6;
+                      color: #ffffff;
+                      text-align: center;
+                    "
+                  >
+                    Queríamos agradecerte por tomarte el tiempo de compartir
+                    tu experiencia con nosotros.
+                    <strong>
+                      Tendremos muy en cuenta tus opiniones y sugerencias
+                    </strong>
+                    para que la próxima edición de Tengoku Imperial sea aún más increíble.
+                  </p>
+
                 </div>
 
-                <p style="background: linear-gradient(to right, #200000, #300000); width: max-content; padding: 0.5rem 1rem; border-radius: 15px; font-size: 16px; font-weight: 700; color: #FFF; margin: 0.5rem auto; text-align: center;">
+
+                <!-- Despedida -->
+                <div
+                  style="
+                    text-align: center;
+                    margin: 25px auto;
+                  "
+                >
+                  <p
+                    style="
+                      display: inline-block;
+                      margin: 0;
+                      padding: 10px 20px;
+                      background-color: #250000;
+                      background: linear-gradient(to right, #200000, #300000);
+                      border-radius: 15px;
+                      font-size: 16px;
+                      line-height: 1.4;
+                      font-weight: 700;
+                      color: #ffffff;
+                    "
+                  >
                     ¡Nos vemos en la próxima convención!
-                </p>
-
-                <div style="text-align: center; margin: 1.25rem;">
-                    <img src="https://i.imgur.com/AU2oITs.jpeg" alt="Promo Poster" style="width: 75vw; max-width: 500px; height: auto; display: block; margin: 0 auto; border-radius: 8px;" />
+                  </p>
                 </div>
+
+
+                <!-- Tarjeta promocional -->
+                <div
+                  style="
+                    text-align: center;
+                    margin: 30px auto 10px auto;
+                  "
+                >
+                  <a
+                    href="https://tengoku.com.ar"
+                    target="_blank"
+                    style="
+                      text-decoration: none;
+                    "
+                  >
+                    <img
+                      src="https://tengokugame.vercel.app/images/tengoku-banner-email.webp"
+                      alt="Tengoku Banner"
+                      width="600"
+                      style="
+                        display: block;
+                        width: 100%;
+                        max-width: 600px;
+                        height: auto;
+                        margin: 0 auto;
+                        border: 0;
+                        border-radius: 8px;
+                      "
+                    />
+                  </a>
+                </div>
+
+
+              </div>
             </div>
           `,
         });
       } catch (sendMailError) {
-        console.error("Error al enviar el correo de confirmación al usuario:", sendMailError);
+        console.error(
+          "Error al enviar el correo de confirmación al usuario:",
+          sendMailError
+        );
       }
     }
-
     return new Response(
       JSON.stringify({ message: "Encuesta de satisfacción procesada con éxito" }),
       { status: 200 }
