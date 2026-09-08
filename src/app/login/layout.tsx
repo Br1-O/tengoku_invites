@@ -1,14 +1,12 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Encuesta de Satisfaccion',
-  description: 'Decinos tu opinión del evento.',
-  icons: [
-    {
-      url: "/favicon.ico",
-      href: "/favicon.ico"
-    }
-  ],
+  title: "Iniciar Sesión | Tengoku Imperial",
+  description: "¡Ingresá para ver todo el contenido exclusivo del evento!",
+  openGraph: {
+    title: "Iniciar Sesión | Tengoku Imperial",
+    description: "¡Ingresá para ver todo el contenido exclusivo del evento!",
+  },
 };
 
 const RegisterLayout = ({

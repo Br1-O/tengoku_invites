@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   type: "website",
   url: "https://tengokugame.vercel.app",
   siteName: "Tengoku Games",
-  title: "Tengoku Games | Convencion Tengoku Imperial",
+  title: "Tengoku Imperial | Anime, Cosplay y Cultura Japonesa",
   description:
-    "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+    "¡Disfrutá de concursos de cosplay, baile, canto, juegos, salas tematicas, stands, invitados y mucho más!",
   images: [
     {
       url: "https://tengokugame.vercel.app/images/tengoku-banner-email.webp",
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tengoku Games | Convencion Tengoku Imperial",
+    title: "Tengoku Imperial | Anime, Cosplay y Cultura Japonesa",
     description:
-      "¡Vení a participar de los más emocionantes juegos y sé el único ganador del premio!",
+      "¡Disfrutá de concursos de cosplay, baile, canto, juegos, salas tematicas, stands, invitados y mucho más!",
     images: ["https://tengokugame.vercel.app/images/tengoku-banner-email.webp"],
   },
 };
