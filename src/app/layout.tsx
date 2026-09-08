@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 const siteConfig = {
   name: "Tengoku Imperial",
   description:
-    "¡Disfrutá de concursos de cosplay, baile, canto, juegos, salas temáticas, stands, invitados y mucho más en la mayor convención!",
+    "¡Disfrutá de concursos de cosplay, baile, canto, juegos, salas temáticas, stands, invitados y más!",
   url: "https://tengokugame.vercel.app",
   ogImage: "https://tengokugame.vercel.app/images/tengoku-banner-email.webp",
 };
