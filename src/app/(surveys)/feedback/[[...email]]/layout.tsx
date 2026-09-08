@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Encuesta | Tengoku Imperial",
+  title: "Encuesta",
   description: "¡Decinos qué opinas y ayudanos a mejorar el evento!",
   openGraph: {
     title: "Encuesta | Tengoku Imperial",

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Iniciar Sesión | Tengoku Imperial",
+  title: "Iniciar Sesión",
   description: "¡Ingresá para ver todo el contenido exclusivo del evento!",
   openGraph: {
     title: "Iniciar Sesión | Tengoku Imperial",
